@@ -202,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 61403517}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.43, z: 0}
+  m_LocalPosition: {x: 0, y: -5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -637,10 +637,10 @@ RectTransform:
   - {fileID: 1277352309}
   m_Father: {fileID: 665259419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8472626}
-  m_AnchorMax: {x: 0.30400002, y: 1}
-  m_AnchoredPosition: {x: 6, y: 0}
-  m_SizeDelta: {x: -12, y: -24}
+  m_AnchorMin: {x: 0, y: 0.897}
+  m_AnchorMax: {x: 0.29200003, y: 1}
+  m_AnchoredPosition: {x: 6, y: -6}
+  m_SizeDelta: {x: -12, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414777125
 MonoBehaviour:
@@ -697,10 +697,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 3
+  m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
+  m_CellSize: {x: 96, y: 108}
   m_Spacing: {x: 12, y: 2}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -1263,11 +1263,10 @@ Transform:
   m_GameObject: {fileID: 783054805}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 818187199}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &783054808
@@ -1326,7 +1325,7 @@ GameObject:
   - component: {fileID: 818187199}
   - component: {fileID: 818187200}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: King
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,12 +1339,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818187198}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.1, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 783054807}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &818187200
 SpriteRenderer:
@@ -1436,8 +1435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.47000003}
   m_AnchorMax: {x: 0.26200002, y: 0.47000003}
-  m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 0, y: 208}
+  m_AnchoredPosition: {x: 24, y: 10}
+  m_SizeDelta: {x: -24, y: 208}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &937101303
 MonoBehaviour:
@@ -2958,6 +2957,7 @@ SceneRoots:
   - {fileID: 1339035469}
   - {fileID: 61403519}
   - {fileID: 783054807}
+  - {fileID: 818187199}
   - {fileID: 624597603}
   - {fileID: 1026559486}
   - {fileID: 1745150938}
