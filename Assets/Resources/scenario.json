@@ -1,0 +1,51 @@
+{
+    "scenarios": [
+        {
+            "king_id": "1",
+            "event_id": "1",
+            "king_name": "David I",
+            "events": "Tax Payment",
+            "advise": "What about getting the tax from the people to revive the country?",
+            "answer": {
+                "agree": "[내용]",
+                "disagree": "[내용]"
+            },
+            "hint": {
+                "agree": "[힌트]",
+                "disagree": "[힌트]"
+            },
+            "reaction": {
+                "agree": "성공적으로 세금을 징수했습니다. 하지만 백성들의 반발이 좀 심한 것 같습니다.",
+                "disagree": "왕의 결정에 백성들이 감동한 것 같습니다."
+            },
+            "effect": {
+                "agree": "재산 15% 상승, 민심 20% 하락",
+                "disagree": "민심 10% 상승"
+            }
+        },    
+        {
+            "king_id": "1",
+            "event_id": "2",
+            "king_name": "데이비드 I",
+            "events": "세금 징수 선택",
+            "advise": "자국의 부흥을 위해 백성들에게 세금을 더 걷는 것이 어떻습니까?",
+            "answer": {
+                "agree": "[내용]",
+                "disagree": "[내용]"
+            },
+            "hint": {
+                "agree": "[힌트]",
+                "disagree": "[힌트]"
+            },
+            "reaction": {
+                "agree": "성공적으로 세금을 징수했습니다. 하지만 백성들의 반발이 좀 심한 것 같습니다.",
+                "disagree": "왕의 결정에 백성들이 감동한 것 같습니다."
+            },
+            "effect": {
+                "agree": "재산 15% 상승, 민심 20% 하락",
+                "disagree": "민심 10% 상승"
+            }
+        }
+    ]
+
+}

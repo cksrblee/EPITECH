@@ -26,13 +26,13 @@ public class Subjects : MonoBehaviour
 
     private SubjectStatus status;
 
-    public bool TestChangeDirection = false;
-
-    public UnityEvent OnSubjectFinishConversation; // 신하가 뒤로 물러갈 떄 유니티 이벤트
+    public bool backMovingTrigger = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        // 캐릭터 Sprite 설정
+
         subjectObj = gameObject;
         subjectObj.transform.position = startPosi;
 
@@ -40,6 +40,7 @@ public class Subjects : MonoBehaviour
         direction = Vector3.up;
         status = SubjectStatus.Moving;
 
+        GameObject.Find("GameManager").GetComponent<UIController>().OnUserChose.AddListener(SetTriggerBackMoving);
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class Subjects : MonoBehaviour
        
         if(status == SubjectStatus.Stopping)
         {
-            if(TestChangeDirection)
+            if(backMovingTrigger)
             {
                 status = SubjectStatus.Moving;
                 ChangeDiretion();
@@ -78,14 +79,33 @@ public class Subjects : MonoBehaviour
                     }
 
                 }*/
+                GameObject.Find("GameManager").GetComponent<GameManager>().GetUIController().OnServantArrived.Invoke();
+                
             }
+
         }
         else
         {
             Debug.LogError("subejctObj is NONE");
         }
     }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if(subjectObj != null)
+        {
+            if(collision.gameObject.name == "FinishPoint")
+            {
+                Debug.Log("EXIT");
+            }
 
+            else if (collision.gameObject.name == "StartPoint")
+            {
+                status = SubjectStatus.Moving;
+                if(backMovingTrigger) Destroy(gameObject);
+
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (subjectObj != null)
@@ -100,5 +120,11 @@ public class Subjects : MonoBehaviour
         direction = Vector3.down;
     }
 
+    private void SetTriggerBackMoving()
+    {
+        backMovingTrigger = true;
+
+        ChangeDiretion();
+    }
 
 }
