@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public UnityEvent OnServantArrived; // ½ÅÇÏ°¡ µµÂøÇßÀ» ‹š
-    public UnityEvent OnUserChose; //À¯ÀúÀÇ ¼±ÅÃÀÌ ³¡³µÀ» ¶§
+    public UnityEvent OnServantArrived; // ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public UnityEvent OnUserChose; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
     public GameObject MainUI;
     public Button choose1;
@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
 
     private void OnDialoguePopUp()
     {
-        //¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý
+        //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
 
 
     }

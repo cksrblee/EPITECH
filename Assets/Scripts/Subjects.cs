@@ -31,7 +31,7 @@ public class Subjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Ä³¸¯ÅÍ Sprite ¼³Á¤
+        // Ä³ï¿½ï¿½ï¿½ï¿½ Sprite ï¿½ï¿½ï¿½ï¿½
 
         subjectObj = gameObject;
         subjectObj.transform.position = startPosi;
@@ -46,7 +46,7 @@ public class Subjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //subjectObj ÀÇ ÁÂÇ¥¸¦ startPosi ¿¡¼­ endPosi·Î Time.deltaTimeÀ¸·Î ÀÌµ¿½ÃÅ´
+        //subjectObj ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ startPosi ï¿½ï¿½ï¿½ï¿½ endPosiï¿½ï¿½ Time.deltaTimeï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å´
         if(status == SubjectStatus.Moving) subjectObj.transform.position += direction* Time.deltaTime * moveScale;
        
         if(status == SubjectStatus.Stopping)
