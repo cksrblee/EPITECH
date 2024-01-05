@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,5 +35,15 @@ public class GameManager : MonoBehaviour
     public UIController GetUIController()
     {
         return this.controller;
+    }
+
+    public Scenarios GetScenarios()
+    {
+        return this.scenarios;
+    }
+
+    public static void CallEndingScene()
+    {
+        SceneManager.LoadScene(3);
     }
 }
