@@ -16,12 +16,12 @@ public class ReadingBookMngr : MonoBehaviour
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     public float turnTime = 1f;
 
+    public GameObject InitialCamera;
     public GameObject zoomCamera;
-    public GameObject lastCam;
 
-    public GameObject[] puff;
+    public GameObject storyUI;
 
-    int newPageNumber = 0;
+    bool isZoomFinished = false;
     // Start is called before the first frame update
     void Start()
     { 
@@ -39,61 +39,14 @@ public class ReadingBookMngr : MonoBehaviour
             book.SetState(newState, animationTime: stateAnimationTime, onCompleted: OnBookStateChanged);
         }
 
-        bool turnToPage = false;
-
-        if (Input.GetMouseButtonDown(0)) { 
-            turnToPage = true; newPageNumber += 2;
-            Debug.Log(turnToPage);
-            print(newPageNumber);
-        }
-
-        if (newPageNumber > 5)
+        if (Input.GetMouseButtonDown(0) && isZoomFinished)
         {
-            changeState = true; newState = EndlessBook.StateEnum.ClosedBack;
-            //book.TurnBackward(turnTime,
-            //       onCompleted: OnBookTurnToPageCompleted,
-            //       onPageTurnStart: OnPageTurnStart,
-            //      onPageTurnEnd: OnPageTurnEnd);
-
-            turnToPage = false;
-            book.SetState(newState, animationTime: stateAnimationTime, onCompleted: OnBookStateChanged);
-            
-            lastCam.SetActive(true);
-            zoomCamera.SetActive(false);
-
-            TurnOnPuff(3);
+            storyUI.SetActive(true);
         }
 
-        //페이지 4개 가정
-
-        if (turnToPage)
-        {
-            book.TurnToPage(newPageNumber, turnTimeType, turnTime,
-                openTime: stateAnimationTime,
-                onCompleted: OnBookTurnToPageCompleted,
-                onPageTurnStart: OnPageTurnStart,
-                onPageTurnEnd: OnPageTurnEnd
-                );
-        }
-        
     }
 
     private void OnBookStateChanged(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int pageNumber)
-    {
-        //throw new NotImplementedException();
-    }
-
-    private void OnPageTurnEnd(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection)
-    {
-        //throw new NotImplementedException();
-    }
-
-    private void OnPageTurnStart(echo17.EndlessBook.Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, echo17.EndlessBook.Page.TurnDirectionEnum turnDirection)
-    {
-        //throw new NotImplementedException();
-    }
-
-    private void OnBookTurnToPageCompleted(EndlessBook.StateEnum fromState, EndlessBook.StateEnum toState, int pageNumber)
     {
         //throw new NotImplementedException();
     }
@@ -103,27 +56,17 @@ public class ReadingBookMngr : MonoBehaviour
     public void OnStartBtnClicked()
     {
         //카메라 호출
-        StartCoroutine(ZoomTheBookInSecs(2.3f));
+        StartCoroutine(CameraMoving(2.1f));
     }
 
 
-    IEnumerator ZoomTheBookInSecs(float seconds)
+    IEnumerator CameraMoving(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
-
         zoomCamera.SetActive(true);
-    }
 
-    private void TurnOnPuff(int ind)
-    {
-        StartCoroutine(TurnOnPuffAfterWaiting(3, 3));
-    }
+        yield return new WaitForEndOfFrame();
 
-    IEnumerator TurnOnPuffAfterWaiting(float seconds, int ind)
-    {
-        yield return new WaitForSeconds(seconds);
-
-        puff[ind - 1].SetActive(true);
+        isZoomFinished = true;
     }
 
     public void LoadMainScene()
