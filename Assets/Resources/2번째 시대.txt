@@ -1,0 +1,401 @@
+﻿[
+    {
+        "king_id": "2",
+        "event_id": "1",
+        "king_name": "David Ⅱ",
+        "event": "suppression(1)",
+        "advise": "The aristocratic power poses a significant threat to the monarchy.I think we need to exert some restraint.",
+        "answer": {
+            "agree": "[Go ahead and do that!]",
+            "disagree": "[It seems like a risky attempt...]"
+        },
+        "hint": {
+            "agree": "[You can strengthen the royal authority.]",
+            "disagree": "[It may have side effects.]"
+        },
+        "reaction": {
+            "agree": "You have partially suppressed the influence.",
+            "disagree": "The noble faction has risen in rebellion!"
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {"property" : "popularity", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "royal", "num" : -10},
+                    {"property" : "finance", "num" : -10},
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },    
+    {
+        "king_id": "2",
+        "event_id": "2",
+        "king_name": "David Ⅱ",
+        "event": "Untimely death",
+        "advise": "Prime minister has passed away. How about appointing Puke, who is currently in charge of finances, as the new Prime minister?",
+        "answer": {
+            "agree": "[Let's do it as it is.]",
+            "disagree": "[Not necessary.]"
+        },
+        "hint": {
+            "agree": "[Isn't it better than having nothing?]",
+            "disagree": "[It doesn't seem necessary to appoint separately.]"
+        },
+        "reaction": {
+            "agree": "Your Majesty, corruption in Puke has been exposed...",
+            "disagree": "Your Majesty, corruption in Puke has been exposed, and appropriate measures have been taken."
+        },
+        "effect": {
+            "agree": [
+                    {"property" : "popularity", "num" : -20},
+                    {“property" : "finance", "num" : -20}
+            ] 
+            "disagree": [
+                    {"property" : "popularity", "num" : 10},
+                    {"property" : "finance", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "3",
+        "king_name": "David Ⅱ",
+        "event": "Palace Construction",
+        "advise": "How about constructing a new palace to strengthen royal authority?",
+        "answer": {
+            "agree": "[Please execute it immediately.]",
+            "disagree": "[Wouldn't it be better to save financial resources?]"
+        },
+        "hint": {
+            "agree": "[This is a great opportunity to strengthen royal authority.]",
+            "disagree": "[The financial resources are more important.]"
+        },
+        "reaction": {
+            "agree": "We have commenced the construction of the palace, and a substantial number of resources is expected to be invested.",
+            "disagree": "We didn't take any specific measures."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 20},
+                    {"property" : "finance", "num" : -20}
+            ] 
+            "disagree": [
+                    {"property" : "finance", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "4",
+        "king_name": "David Ⅱ",
+        "event": "Suppression(2)",
+        "advise": "To enhance Your Majesty's authority, it is essential to consistently restrain the influence of the noble class.",
+        "answer": {
+            "agree": "[Have the nobles submit proof of their social status.]",
+            "disagree": "[Isn't it sufficient even now?]"
+        },
+        "hint": {
+            "agree": "[Maybe, the nobility will resist.]",
+            "disagree": "[Maybe, the common people will resist.]"
+        },
+        "reaction": {
+            "agree": "While facing strong opposition from the nobility, it garnered support from the commoners.",
+            "disagree": "The nobility continues to harass the commoners."
+        },
+        "effect": {
+            "agree": [
+                    {"property" : "popularity", "num" : 20}
+            ] 
+            "disagree": [
+                    {“property" : "finance", "num" : -10},
+                    {"property" : "popularity", "num" : -20}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "5",
+        "king_name": "David Ⅱ",
+        "event": "Declaration of War",
+        "advise": "How about declaring war to showcase the strength of France throughout all of Europe?",
+        "answer": {
+            "agree": "[Alright. Get ready to leave right away.]",
+            "disagree": "[Focus on the internal situation only.]"
+        },
+        "hint": {
+            "agree": "[There is no force that can rival France.]",
+            "disagree": "[There's no need to provoke a war unnecessarily.]"
+        },
+        "reaction": {
+            "agree": "Throughout Europe, sentiments have begun to view France as an adversary.",
+            "disagree": "France enjoyed several months of peaceful days."
+        },
+        "effect": {
+            "agree": [
+                    {"property" : "popularity", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "finance", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "6",
+        "king_name": "David Ⅱ",
+        "event": "Epidemic",
+        "advise": "We need to take proactive measures as the disease is spreading.",
+        "answer": {
+            "agree": "[Install a protection center to prevent the spread.]",
+            "disagree": "[Do you really have to?]"
+        },
+        "hint": {
+            "agree": "[The likelihood of preventing the spread of the disease is high.]",
+            "disagree": "[It's likely to be one of the common diseases.]"
+        },
+        "reaction": {
+            "agree": "The prevalent disease was smallpox, and France took proactive measures to address it.",
+            "disagree": "The smallpox spread on a large scale!!"
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {“property" : "popularity", "num" : 10},
+                    {"property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "popularity", "num" : -20}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "7",
+        "king_name": "David Ⅱ",
+        "event": "War",
+        "advise": "The United Kingdom, the Netherlands, and Austria have formed an alliance and are posing a threat to France. you should call up the troops.",
+        "answer": {
+            "agree": "[Gather forces and prepare for war!]",
+            "disagree": "[It seems like the current forces are sufficient...]"
+        },
+        "hint": {
+            "agree": "[It cannot guarantee the outcome.]",
+            "disagree": "[The decision to go to war is too burdensome.]"
+        },
+        "reaction": {
+            "agree": "We have a problem. We are running short on military maintenance funds!",
+            "disagree": "War did not break out, and France has regained peace."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : -20},
+                    {"property" : "finance", "num" : -20}
+            ] 
+            "disagree": [
+                    {"property" : "royal", "num" : 10}
+                    {"property" : "finance", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "8",
+        "king_name": "David Ⅱ",
+        "event": "Natural disaster",
+        "advise": "The crops have suffered significant damage due to natural disasters, making life difficult for the people. It seems necessary to distribute food to alleviate the situation.",
+        "answer": {
+            "agree": "[Distribute the food to the people.]",
+            "disagree": "[Can't they endure it?]"
+        },
+        "hint": {
+            "agree": "[The people are the nation.]",
+            "disagree": "[We're going through a tough time too...]"
+        },
+        "reaction": {
+            "agree": "The people are cheering and applauding the king's name with jubilation!",
+            "disagree": "The people are enduring difficult day-to-day lives..."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "popularity", "num" : 10},
+                    {"property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {“property" : "finance", "num" : 10},
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "9",
+        "king_name": "David Ⅱ",
+        "event": "Alliance with Austria",
+        "advise": "Austria requested an alliance. How would you like to proceed?",
+        "answer": {
+            "agree": "[Taking breaks is important as well, right?]",
+            "disagree": "[Stop talking nonsense!]"
+        },
+        "hint": {
+            "agree": "[Maintaining peace with other country is important.]",
+            "disagree": "[France and Austria have had a hostile relationship for 300 years.]"
+        },
+        "reaction": {
+            "agree": "France has established a successful alliance with Austria.",
+            "disagree": "Upon hearing news of the alliance rejection, the United Kingdom invaded France!"
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10}
+            ] 
+            "disagree": [
+                    {"property" : "royal", "num" : -10},
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "10",
+        "king_name": "David Ⅱ",
+        "event": "Succession issue",
+        "advise": "Austria proposed a marriage of convenience to strengthen our relationship. What should you do?",
+        "answer": {
+            "agree": "[I need to produce successors, so it seems fine.]",
+            "disagree": "[Does Austria dare?]"
+        },
+        "hint": {
+            "agree": "[Will popularity be okay?]",
+            "disagree": "[The relationship with Austria is one of eternal hostility.]"
+        },
+        "reaction": {
+            "agree": "France accepted the marriage. The name of the queen who came from Austria was Marie Antoinette.",
+            "disagree": "France severed ties with Austria. The queen whose departure was planned from Austria was named Marie Antoinette."
+        },
+        "effect": {
+            "agree": [
+                    {"property" : "popularity", "num" : 10}
+            ] 
+            "disagree": [
+                    {"property" : "royal", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "11",
+        "king_name": "David Ⅱ",
+        "event": "Year of famine",
+        "advise": "This year is a difficult year. It seems advisable to invest in stabilizing the country by contributing to its prosperity.",
+        "answer": {
+            "agree": "[To benefit the country, people must be willing to make sacrifices.]",
+            "disagree": "[I also find it difficult to make a living.]"
+        },
+        "hint": {
+            "agree": "[I think we need to stabilize the country.]",
+            "disagree": "[It involves a significant amount of investment.]"
+        },
+        "reaction": {
+            "agree": "You have successfully stabilized the country.",
+            "disagree": "As numerous people perished, the reputation of the king suffered a decline."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {“property" : "popularity", "num" : 10},
+                    {"property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {“property" : "finance", "num" : 10},
+                    {“property" : "royal", "num" : -10},
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "12",
+        "king_name": "David Ⅱ",
+        "event": "The American War",
+        "advise": "The America, which were British colonies, initiated a war. How about helping the United States?",
+        "answer": {
+            "agree": "[I will help with the independence of the United States!]",
+            "disagree": "[Should I really bother helping?]"
+        },
+        "hint": {
+            "agree": "[It is a matter of the destiny of the United States.]",
+            "disagree": "[Isn't it possible for the United States to betray us?]"
+        },
+        "reaction": {
+            "agree": "The United States successfully achieved independence, but due to a lack of exchange with France, they ended up accumulating debts.",
+            "disagree": "The United States achieved successful independence without the assistance of France."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "finance", "num" : -20}
+            ] 
+            "disagree": [
+                    {"property" : "finance", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "13",
+        "king_name": "David Ⅱ",
+        "event": "National Assembly",
+        "advise": "The common people have established a national assembly. It seems like a suspicious move, so it would be advisable to investigate.",
+        "answer": {
+            "agree": "[Is it a rebellion? Investigate it once.]",
+            "disagree": "[It must be nothing significant, your majesty.]"
+        },
+        "hint": {
+            "agree": "[Maybe, This decision could be seen as a hasty response.]",
+            "disagree": "[Let's trust the common people.]"
+        },
+        "reaction": {
+            "agree": "The common people, angered by the king's response, have sparked a major uprising!",
+            "disagree": "Oh no! The commoners have declared independence in the assembly and sparked a rebellion!"
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : -20},
+                    {"property" : "popularity", "num" : -20}
+            ] 
+            "disagree": [
+                    {"property" : "royal", "num" : -10},
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "2",
+        "event_id": "14",
+        "king_name": "David Ⅱ",
+        "event": "The French Revolution",
+        "advise": "The common people have risen in rebellion at the national prison, Your majesty. We must immediately mobilize the military to suppress the situation.",
+        "answer": {
+            "agree": "[Quickly, go! Hurry!!]",
+            "disagree": "[There's no way that would happen...]"
+        },
+        "hint": {
+            "agree": "[I think the end is coming.]",
+            "disagree": "[I think the end is coming.]"
+        },
+        "reaction": {
+            "agree": "The prison has been occupied. The common people are eagerly anticipating the king's final moments, Your Majesty...",
+            "disagree": "The prison has been occupied. The common people are eagerly anticipating the king's final moments, Your Majesty..."
+        },
+        "effect": {
+            "agree": [
+                
+            ] 
+            "disagree": [
+
+            ]
+        }
+    }
+
+]

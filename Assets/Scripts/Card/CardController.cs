@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CardController : MonoBehaviour
 {
-
-    public ApproveCard leftCard;
-    public DisapproveCard rightCard;
+    public Transform leftCardPlateTransform;
+    public Transform rightCardPlateTransform;
+    private ApproveCard leftCard;
+    private DisapproveCard rightCard;
 
     public Scenarios scenarios;
 
-    public int curSceneIndex = 0;
+    public int curScenarioIndex = 1;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +23,16 @@ public class CardController : MonoBehaviour
         scenarios = GameObject.Find("GameManager").GetComponent<GameManager>().GetScenarios();
 
         //Set First Card 
+        curScenarioIndex = GameObject.Find("GameManager").GetComponent<UIController>().GetScenarioIndex();
+
+        MakeCards(scenarios.scenarios[curScenarioIndex]);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void MakeCards(Scenario scenario)
@@ -33,27 +40,8 @@ public class CardController : MonoBehaviour
         leftCard = new ApproveCard();
         rightCard = new DisapproveCard();
 
-        leftCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect);
-        rightCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect);
-    }
-    void OnMouseOverRightCard()
-    {
-
+        leftCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, leftCardPlateTransform);
+        rightCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, rightCardPlateTransform);
     }
 
-    void OnMouseOverLeftCard()
-    {
-
-    }
-
-    //오른쪽 카드 선택
-    void OnRightCardSelected()
-    {
-
-    }
-
-    void OnLeftCardSelected()
-    {
-
-    }
 }

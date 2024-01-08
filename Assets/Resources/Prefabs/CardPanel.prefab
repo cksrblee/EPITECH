@@ -92,11 +92,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dab6fa1edb5657438eae00690eb5201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCard: {fileID: 7775500958022268228}
-  rightCard: {fileID: 2843607826520325993}
+  leftCardPlateTransform: {fileID: 4611569657908979263}
+  rightCardPlateTransform: {fileID: 8220187437040749646}
   scenarios:
     scenarios: []
-  curSceneIndex: 0
+  curScenarioIndex: 1
 --- !u!114 &3161782623321085854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,11 +231,10 @@ GameObject:
   - component: {fileID: 4611569657908979263}
   - component: {fileID: 6003966779758320375}
   - component: {fileID: 986292463750881234}
-  - component: {fileID: 7775500958022268228}
   - component: {fileID: 4901017687786980419}
   - component: {fileID: 7221154910274249142}
   m_Layer: 5
-  m_Name: LeftCard
+  m_Name: LeftCardPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +274,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4923675099226994137}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -298,18 +297,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7775500958022268228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4923675099226994137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08ca0bf2bc2cdf24181b313880abeb8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4901017687786980419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,12 +431,11 @@ GameObject:
   - component: {fileID: 8220187437040749646}
   - component: {fileID: 857089128809202532}
   - component: {fileID: 7655248413932279274}
-  - component: {fileID: 2843607826520325993}
   - component: {fileID: 93646648610441191}
   - component: {fileID: 7711018237557364933}
   - component: {fileID: 4824431148510229040}
   m_Layer: 5
-  m_Name: RightCard
+  m_Name: RightCardPlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,7 +475,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458502198129975580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -512,18 +498,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2843607826520325993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8458502198129975580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: effa65c8bee934c4b85250d67507ee7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &93646648610441191
 MonoBehaviour:
   m_ObjectHideFlags: 0

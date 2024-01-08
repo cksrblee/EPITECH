@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3ead6638e4f21439877ffdb6927c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClockTik: {fileID: 0}
+  ClockTik: {fileID: 2708022954740816325}
 --- !u!1 &2708022954740816325
 GameObject:
   m_ObjectHideFlags: 0

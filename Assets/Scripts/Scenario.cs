@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,8 +39,15 @@ public class Reaction
 [Serializable]
 public class Effect
 {
-    public string agree { get; set; }
-    public string disagree { get; set; }
+    public EffectAnswer[] agree { get; set; }
+    public EffectAnswer[] disagree { get; set; }
+}
+
+[Serializable]
+public class EffectAnswer
+{
+    public string property { get; set; }
+    public int num { get; set;}
 }
 
 [Serializable]

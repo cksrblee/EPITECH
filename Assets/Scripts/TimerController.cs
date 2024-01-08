@@ -23,7 +23,7 @@ public class TimerController : MonoBehaviour
             time += Time.deltaTime;
             ClockTik.transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * 1.3f);
             yield return null;
-            Debug.Log(time);
+            //Debug.Log(time);
             if (time > 10)
             {
                 break;

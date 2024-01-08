@@ -1,0 +1,404 @@
+﻿[
+    {
+        "king_id": "1",
+        "event_id": "1",
+        "king_name": "David I",
+        "event": "Tax collection",
+        "advise": "How do you feel about increasing taxes on the common people for the financial resources of our nation?",
+        "answer": {
+            "agree": "[To secure financial resources, you've got to take action.]",
+            "disagree": "[It should be fine.]"
+        },
+        "hint": {
+            "agree": "[The more financial resources, the better.]",
+            "disagree": "[Now? there is no urgency regarding finances.]"
+        },
+        "reaction": {
+            "agree": "We successfully collected taxes. However, it seems that there is some strong resistance from the people.",
+            "disagree": "It seems that the people are Impressed by the king's decision."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "finance", "num" : 15},
+                    {"property" : "popularity", "num" : -20}
+            ] 
+            "disagree": [
+                    {"property" : "popularity", "num" : 10}
+            ]
+        }
+    },    
+    {
+        "king_id": "1",
+        "event_id": "2",
+        "king_name": "David I",
+        "event": "Declaration of War by England",
+        "advise": "How about hiring a group of Genoese mercenaries, skilled in crossbows, as England seems to be attempting an invasion of our territory?",
+        "answer": {
+            "agree": "[Execute it immediately!]",
+            "disagree": "[We have sufficient military strength.]"
+        },
+        "hint": {
+            "agree": "[The Genova mercenaries are well-known in Europe, but they are vulnerable to weather conditions.]",
+            "disagree": "[We can win sufficiently.]"
+        },
+        "reaction": {
+            "agree": "While battling, a malfunction occurred in the crossbow due to the rain! The result was a victory for the English forces...",
+            "disagree": "England did not become our adversary. It's a flawless victory!"
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : -10},
+                    {“property" : "popularity", "num" : -10}
+            ] 
+            "disagree": [
+                    {“property" : "royal", "num" : 10},
+                    {"property" : "popularity", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "3",
+        "king_name": "David I",
+        "event": "Unusual Disease Discovered",
+        "advise": "We have discovered a disease that we have never seen before. However we need to save the financial resources, so it seems unnecessary to take any specific measures.",
+        "answer": {
+            "agree": "[Isn't it just a simple cold?]",
+            "disagree": "[I feel uneasy. Should I take some action?]"
+        },
+        "hint": {
+            "agree": "[It seems that the current medical technology is sufficient to respond adequately.]",
+            "disagree": "[I've never seen this illness before...]"
+        },
+        "reaction": {
+            "agree": "The Black Death occurred! This is a very unfavorable situation.",
+            "disagree": "Through the king's measures, France successfully coped with the situation. The name of this epidemic was the Black Death."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : -20},
+                    {"property" : "popularity", "num" : -20}
+            ] 
+            "disagree": [
+                    {"property" : "popularity", "num" : 10},
+                    {"property" : "finance", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "4",
+        "king_name": "David I",
+        "event": "Military conscription",
+        "advise": "We may need to strengthen royal authority through military conscription.",
+        "answer": {
+            "agree": "[This is a great opportunity to showcase the strength of our military.]",
+            "disagree": "[It is enough for now.]"
+        },
+        "hint": {
+            "agree": "[In the country, the importance of royal authority is significant.]",
+            "disagree": "[I'm worried about the maintenance costs...]"
+        },
+        "reaction": {
+            "agree": "France's military strength increased, but the response is not positive.",
+            "disagree": "The king took no particular measures."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 20},
+                    {"property" : "popularity", "num" : -20},
+                    {"property" : "finance", "num" : -20}
+            ] 
+            "disagree": [
+
+            ]
+        }
+    },    
+　　{
+        "king_id": "1",
+        "event_id": "5",
+        "king_name": "David I",
+        "event": "England's invasion of France",
+        "advise": "How about fighting with infantry tactics this time instead of cavalry?",
+        "answer": {
+            "agree": "[Maybe it's okay to reconsider the tactics at least once.]",
+            "disagree": "[France is cavalry tactics. Let's focus on cavalry.]"
+        },
+        "hint": {
+            "agree": "[It seems like a reasonable attempt since the opponent already faced cavalry.]",
+            "disagree": "[The French cavalry is very powerful.]"
+        },
+        "reaction": {
+            "agree": "Our military secured victory through a perfect response!",
+            "disagree": "The English army has completely routed our cavalry..."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {"property" : "popularity", "num" : 10}
+            ] 
+            "disagree": [
+                    {"property" : "royal", "num" : -10}
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },    
+　　{
+        "king_id": "1",
+        "event_id": "6",
+        "king_name": "David I",
+        "event": "Suppression",
+        "advise": "A new group of thieves has emerged and they are raiding the village. You need to take action.",
+        "answer": {
+            "agree": "[Immediately mobilize the military to crack down on the bandits.]",
+            "disagree": "[The situation is tough due to the war with another country...]"
+        },
+        "hint": {
+            "agree": "[The stability of the country is the top priority.]",
+            "disagree": "[It's too difficult to apply.]"
+        },
+        "reaction": {
+            "agree": "You mobilized the military to suppress the bandits, and the people cheered.",
+            "disagree": "A band of thieves raided the village, resulting in the loss of lives for several villagers."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {"property" : "popularity", "num" : 10},
+                    {"property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "7",
+        "king_name": "David I",
+        "event": "England's ceasefire proposal",
+        "advise": "The hostile relationship with England makes a ceasefire unlikely.",
+        "answer": {
+            "agree": "[The England has caused us a lot of harm. Ceasefire is not an option.]",
+            "disagree": "[I will negotiate a ceasefire with England.]"
+        },
+        "hint": {
+            "agree": "[We must fight until the end.]",
+            "disagree": "[We're exhausted from the long war.]"
+        },
+        "reaction": {
+            "agree": "We did not accept England's proposal. We will continue to fight.",
+            "disagree": "We accepted the proposal for a one-year ceasefire."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {"property" : "popularity", "num" : 10},
+                    {"property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "finance", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "8",
+        "king_name": "David I",
+        "event": "Famine",
+        "advise": "The people are suffering due to a shortage of food. We earnestly request assistance to alleviate their plight.",
+        "answer": {
+            "agree": "[I cannot simply stand by and watch the suffering of the people.]",
+            "disagree": "[We too face difficult circumstances...]"
+        },
+        "hint": {
+            "agree": "[When everyone is going through a tough time, you should take care of them.]",
+            "disagree": "[Next time?]"
+        },
+        "reaction": {
+            "agree": "You distributed food to the people, and they were extremely pleased.",
+            "disagree": "While famine persist, the people are enduring a difficult life..."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "popularity", "num" : 20},
+                    {"property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "popularity", "num" : -20}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "9",
+        "king_name": "David I",
+        "event": "A visit by a certain girl",
+        "advise": "I heard a voice asking to save the crisis-stricken French king, that's why I'm here to help you. Please accept me.",
+        "answer": {
+            "agree": "[It seems like it won't matter for now.]",
+            "disagree": "[It sounds strange.]"
+        },
+        "hint": {
+            "agree": "[Since there's nothing to lose, should I accept it?]",
+            "disagree": "[It's a waste of time.]"
+        },
+        "reaction": {
+            "agree": "She dispatched to the battle and achieved a significant victory. We asked her name, she replied, "Jeanne d'Arc"",
+            "disagree": "The girl left. When we asked her name, she replied, "Jeanne d'Arc""
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 20},
+                    {"property" : "popularity", "num" : 20},
+                    {"property" : "finance", "num" : 20}
+            ] 
+            "disagree": [
+                    {“property" : "royal", "num" : -20},
+                    {"property" : "popularity", "num" : -20},
+                    {"property" : "finance", "num" : -20}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "10",
+        "king_name": "David I",
+        "event": "Price control",
+        "advise": "The rising bread prices are causing hardship among the people. Could you please consider lowering the prices?",
+        "answer": {
+            "agree": "[I'll make sure to lower the price.]",
+            "disagree": "[It's still okay for now.]"
+        },
+        "hint": {
+            "agree": "[The will of the people is as important as financial resources.]",
+            "disagree": "[The nation's financial resources could decline.]"
+        },
+        "reaction": {
+            "agree": "The conditions of the people have improved somewhat.",
+            "disagree": "The people's plea continues."
+        },
+        "effect": {
+            "agree": [
+                    {"property" : "popularity", "num" : 10},
+                    {“property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "finance", "num" : 10},
+                    {“property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "11",
+        "king_name": "David I",
+        "event": "Gout occurrence",
+        "advise": "As it seems you have caught a gout, it would be advisable for you to take a bit of rest.",
+        "answer": {
+            "agree": "[I think you need to take a little break.]",
+            "disagree": "[I must not rest for the sake of the country.]"
+        },
+        "hint": {
+            "agree": "[The royal authority may somewhat diminish...]",
+            "disagree": "[Maintaining royal authority is crucial.]"
+        },
+        "reaction": {
+            "agree": "Health has stabilized.",
+            "disagree": "The health has deteriorated further."
+        },
+        "effect": {
+            "agree": [
+                    {"property" : "royal", "num" : 20}
+            ] 
+            "disagree": [
+                    {"property" : "finance", "num" : -10},
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "12",
+        "king_name": "David I",
+        "event": "Territorial recovery",
+        "advise": "We must reclaim the territories taken by England.",
+        "answer": {
+            "agree": "[Let's go to war right now.]",
+            "disagree": "[It's not the right time yet.]"
+        },
+        "hint": {
+            "agree": "[Reclaiming our territory is crucial.]",
+            "disagree": "[The greater opportunity will come.]"
+        },
+        "reaction": {
+            "agree": "We have successfully reclaimed the territory. The soldiers are cheering.",
+            "disagree": "I think everyone is disappointed with the passive attitude..."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {"property" : "finance", "num" : -10}
+            ] 
+            "disagree": [
+                    {“property" : "royal", "num" : -10},
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "13",
+        "king_name": "David I",
+        "event": "Discovery of corruption",
+        "advise": "My majesty, it seems that there are officials within the administration abusing their power. Please promptly investigate and address this matter.",
+        "answer": {
+            "agree": "[Please identify it immediately.]",
+            "disagree": "[I don't think so.]"
+        },
+        "hint": {
+            "agree": "[If it is true, it would be a significant loss for the country.]",
+            "disagree": "[Not accurate information.]"
+        },
+        "reaction": {
+            "agree": "Upon closer examination, there was no such management. It was incorrect information.",
+            "disagree": "It was incorrect information, you gained the trust of people."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : -10}
+            ] 
+            "disagree": [
+                    {"property" : "royal", "num" : 10}
+            ]
+        }
+    },
+　　{
+        "king_id": "1",
+        "event_id": "14",
+        "king_name": "David I",
+        "event": "Natural disaster occurred",
+        "advise": "My majesty, these days the frequency of natural disasters has been increasing, casting a somber mood over the country. may I suggest a royal inspection to assess the situation?",
+        "answer": {
+            "agree": "[I'll check it myself.]",
+            "disagree": "[It doesn't seem necessary...]"
+        },
+        "hint": {
+            "agree": "[It's better to see it with your own eyes.]",
+            "disagree": "[It might be more efficient to make a request...]"
+        },
+        "reaction": {
+            "agree": "The people regained stability after receiving the king's inspection.",
+            "disagree": "King's took only simple actions after reviewing the report."
+        },
+        "effect": {
+            "agree": [
+                    {“property" : "royal", "num" : 10},
+                    {"property" : "popularity", "num" : 10}
+            ] 
+            "disagree": [
+                    {"property" : "popularity", "num" : -10}
+            ]
+        }
+    }
+]

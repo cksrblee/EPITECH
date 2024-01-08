@@ -10,12 +10,11 @@ public class UIController : MonoBehaviour
     public UnityEvent OnUserChose; //������ ������ ������ ��
 
     public GameObject MainUI;
-    public GameObject CardUI;
+    public GameObject CardUIPanel;
     public GameObject ClockUI;
     public Button choose1;
     public Button choose2;
     public GameObject UIParent;
-
     int scenarioIndex = 0;
     enum UIStatus
     {
@@ -25,28 +24,26 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         MainUI.SetActive(false);
-        choose1.onClick.AddListener(OnPlatyerSelectYes);
+        choose1.onClick.AddListener(OnPlayerSelectYes);
         choose2.onClick.AddListener(OnPlayerSelectNo);
 
-        StartCoroutine(InstantiateCardAndTimer());
+        InstantiateSelectPanel(); // 수정
         //InvokeRepeating("TikRotationAnim", 30, 10);
     }
 
 
-    private void OnDialoguePopUp()
+    private void InstantiateSelectPanel()
     {
-        //�ִϸ��̼� ���
-
-
+        StartCoroutine(InstantiateCardAndTimer());
     }
     IEnumerator InstantiateCardAndTimer()
     {
-        //ClockUI.SetActive(true);
         //CardUI.SetActive(true);
-        var temp1=GameObject.Instantiate(CardUI, UIParent.transform);
+        var temp1=GameObject.Instantiate(CardUIPanel, UIParent.transform); //UI Controll에서는 카드 패널을 부를 뿐 카드를 만들지는 않음
         yield return new WaitForEndOfFrame();
         var temp = GameObject.Instantiate(ClockUI, UIParent.transform);
 
+        //ClockUI.SetActive(true);
 
         var time = 0.0f;
 
@@ -54,11 +51,12 @@ public class UIController : MonoBehaviour
         {
             time += Time.deltaTime;
             yield return null;
-            Debug.Log(time);
+            //Debug.Log(time);
             if(time > 10)
             {
-
+                Debug.Log("TIME TO SWTICH");
                 //오브젝트 삭제
+
                 Destroy(temp);
                 Destroy(temp1);
                 //실패
@@ -75,7 +73,7 @@ public class UIController : MonoBehaviour
 
         StartCoroutine(InstantiateCardAndTimer());
     }
-    private void OnPlatyerSelectYes()
+    private void OnPlayerSelectYes()
     {
         OnUserChose.Invoke();
     }
@@ -85,4 +83,8 @@ public class UIController : MonoBehaviour
         OnUserChose.Invoke();
     }
 
+    public int GetScenarioIndex()
+    {
+        return scenarioIndex;
+    }
 }
