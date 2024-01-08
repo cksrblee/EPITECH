@@ -40,7 +40,6 @@ public class CutScene4 : MonoBehaviour
         dialogueBackground.SetActive(false);
         yield return new WaitForSeconds(2f); // Delay before first dialogue
         dialogueBackground.SetActive(true);
-        yield return new WaitForSeconds(2f);
 
         // First Dialogue
         ShowDialogue("????????!?!?!!?!?!!?!?!??!!?!!?!!?!!!?!?!");
