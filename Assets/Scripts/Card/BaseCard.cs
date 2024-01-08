@@ -122,6 +122,12 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public virtual void OnCardClicked()
     {
         Debug.Log("CARD CLICKED");
+        var obj = Resources.Load<GameObject>("popup");
+
+        var uitresform = GameObject.Find("InGameUI").transform;
+        Instantiate(obj, uitresform);
+
+
     }
     
 }
