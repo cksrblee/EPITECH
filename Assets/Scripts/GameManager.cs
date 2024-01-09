@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("SCENARIOS LENGTH:" + scenarios.scenarios.Length);
     }
 
+    
     public UIController GetUIController()
     {
         return this.controller;

@@ -73,6 +73,7 @@ public class UIController : MonoBehaviour
 
         StartCoroutine(InstantiateCardAndTimer());
     }
+
     private void OnPlayerSelectYes()
     {
         OnUserChose.Invoke();

@@ -49,7 +49,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         mainCamera = Camera.main;
 
-        // Ä¿¼­ ¾ÆÀÌÄÜÀ» »ý¼ºÇÏ°í ½ÃÀÛ ½Ã ºñÈ°¼ºÈ­ÇÕ´Ï´Ù.
+        // Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Õ´Ï´ï¿½.
         cursorIcon = Instantiate(Resources.Load<GameObject>("Stamp"), this.gameObject.transform);
         cursorIcon.SetActive(false);
 
@@ -66,18 +66,18 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (isCursorOn)
             {
                 cursorIcon.SetActive(true);
-                // ¸¶¿ì½º À§Ä¡¸¦ ¿ùµå ÁÂÇ¥·Î º¯È¯ÇÕ´Ï´Ù.
+                // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
                 Vector3 cursorPos = Input.mousePosition;
-                cursorPos.z = -2; // Z°ªÀ» 0À¸·Î ¼³Á¤ÇÏ¿© 2D Æò¸é¿¡ ¸Â°Ô Á¶Á¤ÇÕ´Ï´Ù.
+                cursorPos.z = -2; // Zï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ 2D ï¿½ï¿½é¿¡ ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 
-                // Ä¿¼­ ¾ÆÀÌÄÜÀÇ À§Ä¡¸¦ ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
+                // Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Õ´Ï´ï¿½.
                 cursorIcon.transform.position = cursorPos;
             }
         }
 
         else
         {
-            //Ä¿¼­ Á¾·á
+            //Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             cursorIcon.SetActive(false);
         }
     }
@@ -95,13 +95,11 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             animator.SetTrigger("Flip");
 
             isFlipped = true;
-            isComingUp = true; // Ã¹¹ø¤Š ½ÇÇà °£ÁÖ
+            isComingUp = true; // Ã¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-            //³»¿ë º¯°æ
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             status = Status.HINT;
         }
-
-
     }
 
     public void OnPointerExit(PointerEventData eventData)
