@@ -17,9 +17,9 @@ public class CardAnimationController : MonoBehaviour, IPointerEnterHandler, IPoi
             animator.SetTrigger("Flip");
 
             isFlipped = true;
-            isComingUp = true; // Ã¹¹ø¤Š ½ÇÇà °£ÁÖ
+            isComingUp = true; // Ã¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-            //³»¿ë º¯°æ
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
 
         

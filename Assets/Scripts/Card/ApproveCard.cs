@@ -34,7 +34,7 @@ public class ApproveCard : BaseCard
         text.text = ac.answer;
     }
 
-    //µÚÁýÀ» ¶§ 
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
     public override void OnFlipped()
     {
         print("FLIP");
@@ -72,7 +72,6 @@ public class ApproveCard : BaseCard
     public void FlipWrapper()
     {
         StartCoroutine(WaitAndFlip());
-
     }
 
     public void FlipBackWrapper()
