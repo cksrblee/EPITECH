@@ -73,4 +73,9 @@ public class ReadingBookMngr : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
+    public void loadnextscene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
 }

@@ -9,6 +9,7 @@ public class CutScene3 : MonoBehaviour
 {
     public GameObject bus;
     public GameObject dialogueBackground;
+    public GameObject dialogueCharName;
     public GameObject main_character;
     public GameObject current_CUTSCENE;
     public GameObject next_CUTSCENE;
@@ -88,6 +89,7 @@ public class CutScene3 : MonoBehaviour
     {
         // Activate Text UI and text
         dialogueBackground.SetActive(true);
+        dialogueCharName.SetActive(true);
         dialogueText.gameObject.SetActive(true);
 
         // makes the opacity to 1
@@ -100,6 +102,7 @@ public class CutScene3 : MonoBehaviour
         DOVirtual.DelayedCall(text.Length * 0.05f + 1f, () => {
             dialogueText.DOFade(0, 0.5f).OnComplete(() => {
                 dialogueBackground.SetActive(false);
+                dialogueCharName.SetActive(false);
                 dialogueText.gameObject.SetActive(false);
                 finished_dialog = true;
             });

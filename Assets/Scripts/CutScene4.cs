@@ -13,6 +13,10 @@ public class CutScene4 : MonoBehaviour
     public GameObject dialogueBackground;
     public TextMeshProUGUI dialogueText;
 
+    // david,servant
+    public TextMeshProUGUI DavidText;
+    public TextMeshProUGUI servantText;
+
     public Image fadeImage;
     private bool finished_dialog = false;
 
@@ -37,39 +41,55 @@ public class CutScene4 : MonoBehaviour
     // @Brief : It is kind of Update in CS230
     IEnumerator CutSceneSequence()
     {
-        dialogueBackground.SetActive(false);
+        dialogueBackground.SetActive(false); 
+        DavidText.gameObject.SetActive(false);
+        servantText.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f); // Delay before first dialogue
         dialogueBackground.SetActive(true);
 
+
+
         // First Dialogue
+        DavidText.gameObject.SetActive(true);
         ShowDialogue("????????!?!?!!?!?!!?!?!??!!?!!?!!?!!!?!?!");
         yield return new WaitUntil(() => finished_dialog); // Wait until first dialogue is finished
         finished_dialog = false;
+        DavidText.gameObject.SetActive(false);
 
         // Second Dialogue
+        DavidText.gameObject.SetActive(true);
         ShowDialogue("What is this...?"); // Show second dialogue
         yield return new WaitUntil(() => finished_dialog);
         finished_dialog = false;
+        DavidText.gameObject.SetActive(false);
 
         // Third Dialogue
-        ShowDialogue("Subject : 'Your Majesty, are you awake? It's time for an inspection.'"); // Show third dialogue
+        servantText.gameObject.SetActive(true);
+        ShowDialogue("Your Majesty, are you awake? It's time for an inspection."); // Show third dialogue
         yield return new WaitUntil(() => finished_dialog);
         finished_dialog = false;
+        servantText.gameObject.SetActive(false);
 
         // Four Dialogue
-        ShowDialogue("Main character : 'Where are we?' ");
+        DavidText.gameObject.SetActive(true);
+        ShowDialogue("Where are we?");
         yield return new WaitUntil(() => finished_dialog);
         finished_dialog = false;
+        DavidText.gameObject.SetActive(false);
 
         // Five Dialogue
-        ShowDialogue("Subject : 'What do you mean? This is the Kingdom of France, you are David I.' ");
+        servantText.gameObject.SetActive(true);
+        ShowDialogue("What do you mean? This is the Kingdom of France, you are David I.");
         yield return new WaitUntil(() => finished_dialog);
         finished_dialog = false;
+        servantText.gameObject.SetActive(false);
 
         // Six Dialogue
-        ShowDialogue("Main Character : 'What?????!!!!!' ");
+        DavidText.gameObject.SetActive(true);
+        ShowDialogue("What?????!!!!!");
         yield return new WaitUntil(() => finished_dialog);
         finished_dialog = false;
+        DavidText.gameObject.SetActive(false);
 
 
         // Make it black
@@ -80,6 +100,7 @@ public class CutScene4 : MonoBehaviour
 
         current_CUTSCENE.SetActive(false);
         //next_CUTSCENE.SetActive(true);
+        GameObject.Find("BookMngr").GetComponent<ReadingBookMngr>().loadnextscene();
     }
 
     // @Brief : This fades to black using opacity.
