@@ -14,8 +14,7 @@ namespace echo17.EndlessBook.EndilngController
 
         public GameObject virtualCamera;
 
-
-
+        public GameObject canvas;
 
         public float stateAnimationTime = 1f;
         public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
@@ -51,6 +50,7 @@ namespace echo17.EndlessBook.EndilngController
         {
             book.SetState(newState, animationTime: stateAnimationTime, onCompleted: OnBookStateChanged);
             virtualCamera.SetActive(true);
+            canvas.SetActive(true);
         }
 
         // Update is called once per frame
