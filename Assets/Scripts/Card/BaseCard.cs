@@ -120,12 +120,28 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public virtual void OnCardClicked()
     {
         Debug.Log("CARD CLICKED");
-        var obj = Resources.Load<GameObject>("popup");
+        // Load the popup prefab
+        GameObject resultPrefab = Resources.Load<GameObject>("Prefabs/ResultCard");
+        if (resultPrefab == null)
+        {
+            Debug.LogError("Popup prefab not found in Resources!");
+            return;
+        }
+        
+        // Instantiate the popup as a child of the InGameUI canvas
+        Transform uiTransform = GameObject.Find("InGameUI").transform;
+        GameObject popupInstance = Instantiate(resultPrefab, uiTransform);
 
-        var uitresform = GameObject.Find("InGameUI").transform;
-        Instantiate(obj, uitresform);
-
-
+        // Get the ResultCard component and call its Build method
+        var resultCardComponent = popupInstance.AddComponent<ResultCard>();
+        if (resultCardComponent != null)
+        {
+            resultCardComponent.Build(this.answer, this.reaction, this.effect);
+            resultCardComponent.LoadImage(this.king_id, this.event_id, this.answer);
+        }
+        else
+        {
+            Debug.LogError("ResultCard component not found on the popup prefab!");
+        }
     }
-    
 }

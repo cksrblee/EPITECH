@@ -11,6 +11,7 @@ public class CardController : MonoBehaviour
     public Transform rightCardPlateTransform;
     private ApproveCard leftCard;
     private DisapproveCard rightCard;
+    private ResultCard resultCard;
 
     public Scenarios scenarios;
 
