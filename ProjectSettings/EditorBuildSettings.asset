@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro_readingBook.unity
     guid: 23d1cb2ffad13644cacbeba09308f419
   - enabled: 1
+    path: Assets/Scenes/Tutorier.unity
+    guid: 8d1ebaa07eba50840a431b7cf970592b
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 89cd4de97e3689743bb6ab5932a4af40
   - enabled: 1
