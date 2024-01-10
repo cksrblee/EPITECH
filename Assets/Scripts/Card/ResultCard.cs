@@ -35,6 +35,9 @@ public class ResultCard : MonoBehaviour
 
     public void Start()
     {
+        // Scale the card up to 1.2 times over a duration of time (e.g., 0.5 seconds)
+        transform.DOScale(new Vector3(1.0f, 1.0f, 1f), 0.5f).SetEase(Ease.Linear);
+
         StartCoroutine(FinishResultPanel()); // �����⸦ ��ٸ��� �̺�Ʈ �ݹ��� ��û�ϴ� �Լ�
     }
 
@@ -47,7 +50,7 @@ public class ResultCard : MonoBehaviour
 
         var obj = gameObject;
 
-        canvas = obj.transform.GetChild(0).transform.GetChild(0); 
+        canvas = obj.transform.GetChild(1).transform.GetChild(0); 
         text1 = canvas.transform.GetChild(1);
         text = text1.gameObject.GetComponent<TextMeshProUGUI>();
         rectTransform = text1.gameObject.GetComponent<RectTransform>();
@@ -76,7 +79,7 @@ public class ResultCard : MonoBehaviour
     {
         if(isLoadImageFinished && !isApplied)
         {
-            final_card = GameObject.FindGameObjectWithTag("ResultCard").transform.GetChild(0).GetChild(0).GetChild(0);
+            final_card = GameObject.FindGameObjectWithTag("ResultCard").transform.GetChild(1).GetChild(0).GetChild(0);
             StartCoroutine(ApplySprite(final_card, resultSprite));
         }
     }
@@ -125,7 +128,6 @@ public class ResultCard : MonoBehaviour
             {
                 GameManager.Popularity += effAnswer.num;
             }
-
         }
         
         if (GameManager.scenarioIndex % 15 != 13) // 배열이므로 -1, 이 함수가 끝나고 AddSceneIndex가 실행되므로 -1 -> 총 -2
