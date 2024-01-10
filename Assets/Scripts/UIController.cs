@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -14,6 +16,11 @@ public class UIController : MonoBehaviour
     private GameObject cardUIPanelObj;
     private GameObject clockUIPanelObj;
     int scenarioIndex = GameManager.scenarioIndex;
+
+    // Variables for Scene Number
+    public GameObject SceneNumBG;
+    public TextMeshProUGUI SceneNumText;
+
     enum UIStatus
     {
         Normal,
@@ -34,7 +41,6 @@ public class UIController : MonoBehaviour
         ThisWorldEventController.OnResultPanelOpened.AddListener(destroyPopUpPanelAction);
     }
 
-
     private void InstantiateSelectPanel()
     {
         StartCoroutine(InstantiateCardAndTimer());
@@ -43,6 +49,9 @@ public class UIController : MonoBehaviour
     {
         //CardUI.SetActive(true);
         cardUIPanelObj = GameObject.Instantiate(CardUIPanel, UIParent.transform); //UI Controll에서는 카드 패널을 부를 뿐 카드를 만들지는 않음
+
+        SceneNumText.text = (GetScenarioIndex() + 1).ToString();
+
         yield return new WaitForEndOfFrame();
         clockUIPanelObj = GameObject.Instantiate(ClockUI, UIParent.transform);
 
