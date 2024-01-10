@@ -15,7 +15,15 @@ public class UIController : MonoBehaviour
 
     private GameObject cardUIPanelObj;
     private GameObject clockUIPanelObj;
-    int scenarioIndex = GameManager.scenarioIndex;
+    int scenarioIndex
+    {
+        get => GameManager.scenarioIndex;
+
+        set
+        {
+            GameManager.scenarioIndex = value;
+        }
+    }
 
     // Variables for Scene Number
     public GameObject SceneNumBG;
@@ -30,7 +38,7 @@ public class UIController : MonoBehaviour
     {
         MainUI.SetActive(false);
 
-        InstantiateSelectPanel(); 
+        InstantiateSelectPanel();  //첫 시작을 위한 코드
         //var openPanelAction = new UnityAction(InstantiateSelectPanel);
         // OnUserChose.AddListener(openPanelAction);
         var openPanelAction = new UnityAction(InstantiateSelectPanel);
@@ -39,6 +47,8 @@ public class UIController : MonoBehaviour
         var destroyPopUpPanelAction = new UnityAction(DestroyPopUpPanels);
         ThisWorldEventController.OnChooseFailed.AddListener(destroyPopUpPanelAction);
         ThisWorldEventController.OnResultPanelOpened.AddListener(destroyPopUpPanelAction);
+
+        ThisWorldEventController.OnChooseFailed.AddListener(openPanelAction);
     }
 
     private void InstantiateSelectPanel()

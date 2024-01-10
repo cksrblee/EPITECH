@@ -44,7 +44,8 @@ public class BaseGaugeController : MonoBehaviour
         {
             //0 포인트일 경우
             // 포인트 더하는 함수 더하기
-            GameManager.CallEndingScene();
+            ThisWorldEventController.OnGameOver.Invoke();
+            //GameManager.CallEndingScene();
         }
 
         else

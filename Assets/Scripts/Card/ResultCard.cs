@@ -94,7 +94,7 @@ public class ResultCard : MonoBehaviour
         }
         catch
         {
-            Debug.LogError("ONRESULTFINISHED EVENT INVOKE ERROR");
+            Debug.LogError("ONRESULT FINISHED EVENT INVOKE ERROR");
         }
         
 
@@ -110,8 +110,24 @@ public class ResultCard : MonoBehaviour
         {
             print(effAnswer.property);
             print(effAnswer.num);
-        }
 
+            if(effAnswer.property == "royal" || effAnswer.property == "Royal")
+            {
+                GameManager.Royal += effAnswer.num;
+            }
+
+            else if (effAnswer.property == "Finance" || effAnswer.property == "finance")
+            {
+                GameManager.Finance += effAnswer.num;
+            }
+
+            else if (effAnswer.property == "Property" || effAnswer.property == "property")
+            {
+                GameManager.Property += effAnswer.num;
+            }
+
+        }
+        
         ThisWorldEventController.OnResultFinished?.Invoke();
     }
 }

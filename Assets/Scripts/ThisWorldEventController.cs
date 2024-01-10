@@ -12,6 +12,9 @@ public class ThisWorldEventController : MonoBehaviour
     public static UnityEvent OnGameOver = new UnityEvent();
     public static UnityEvent OnChooseFailed = new UnityEvent();
     public static UnityEvent OnGaugeChanged = new UnityEvent();
+    public static UnityEvent OnRoyalVariableChanged = new UnityEvent();
+    public static UnityEvent OnFinanceVariableChanged = new UnityEvent();
+    public static UnityEvent OnPropertyVariableChanged = new UnityEvent();
     
 
     // Start is called before the first frame update
