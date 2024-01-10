@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class tutorialuScene1 : MonoBehaviour
 {
@@ -81,6 +82,8 @@ public class tutorialuScene1 : MonoBehaviour
 
         //current_CUTSCENE.SetActive(false);
         //next_CUTSCENE.SetActive(true);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // @Brief : This fades to black using opacity.
