@@ -128,7 +128,6 @@ public class ApproveCard : BaseCard
 
     public override void OnCardClicked()
     {
-
         GameObject final_card = GameObject.FindGameObjectWithTag("ResultCard");
         if (final_card != null)
         {
@@ -159,5 +158,4 @@ public class ApproveCard : BaseCard
             Debug.LogError("ResultCard which is ApproveCard component not found on the popup prefab!");
         }
     }
-
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -16,6 +18,11 @@ public class UIController : MonoBehaviour
     public Button choose2;
     public GameObject UIParent;
     int scenarioIndex = 0;
+
+    // Variables for Scene Number
+    public GameObject SceneNumBG;
+    public TextMeshProUGUI SceneNumText;
+
     enum UIStatus
     {
         Normal,
@@ -31,7 +38,6 @@ public class UIController : MonoBehaviour
         //InvokeRepeating("TikRotationAnim", 30, 10);
     }
 
-
     private void InstantiateSelectPanel()
     {
         StartCoroutine(InstantiateCardAndTimer());
@@ -39,6 +45,9 @@ public class UIController : MonoBehaviour
     IEnumerator InstantiateCardAndTimer()
     {
         //CardUI.SetActive(true);
+
+        SceneNumText.text = (GetScenarioIndex() + 1).ToString();
+
         var temp1=GameObject.Instantiate(CardUIPanel, UIParent.transform); //UI Controll에서는 카드 패널을 부를 뿐 카드를 만들지는 않음
         yield return new WaitForEndOfFrame();
         var temp = GameObject.Instantiate(ClockUI, UIParent.transform);
