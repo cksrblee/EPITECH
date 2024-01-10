@@ -1,7 +1,9 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Resources;
 using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
@@ -27,6 +29,13 @@ public class ResultCard : MonoBehaviour
     public void Awake()
     {
         rectTransform = GameObject.Find("InGameUI").GetComponent<RectTransform>();
+
+        ThisWorldEventController.OnResultPanelOpened.Invoke();
+    }
+
+    public void Start()
+    {
+        StartCoroutine(FinishResultPanel()); // 끝나기를 기다리고 이벤트 콜백을 요청하는 함수
     }
 
     public void Build(string answer, string reaction, EffectAnswer[] effect)
@@ -51,31 +60,7 @@ public class ResultCard : MonoBehaviour
         print("RESULT CARD 1");
         finalCardName = $"{king_id}-{event_id}({agreeORnot})";
         resultSprite = Resources.Load<Sprite>("Illustrate/David_1st/" + finalCardName);
-        /*
-        if (resultSprite != null)
-        {
-            print("RESULT CARD 2");
-            // Just for initializing 
-            final_card = GameObject.FindGameObjectWithTag("ResultCard").transform.GetChild(0).GetChild(0).GetChild(0);
-
-            if(final_card == null) 
-            {
-                print("FINAL CARD ERROR");
-            }
-
-            // Final Card have Image components to assign the sprites to
-            //final_card.gameObject.GetComponent<Image>().sprite = resultSprite;
-
-
-            print("finalCardName : " + finalCardName);
-        }
-        else
-        {
-            Debug.LogError("Sprite not found: " + finalCardName + "\n");
-            Debug.LogError("King's ID : " + king_id + "\n");
-            Debug.LogError("Event's ID : " + event_id + "\n");
-        }
-        */
+        
         isLoadImageFinished = true;
     }
 
@@ -94,5 +79,39 @@ public class ResultCard : MonoBehaviour
             final_card = GameObject.FindGameObjectWithTag("ResultCard").transform.GetChild(0).GetChild(0).GetChild(0);
             StartCoroutine(ApplySprite(final_card, resultSprite));
         }
+    }
+
+    IEnumerator FinishResultPanel()
+    {
+        yield return new WaitForSeconds(GameManager.resultPanelWaitTime);
+
+        Destroy(this.gameObject);
+
+        yield return new WaitForEndOfFrame();
+        try
+        {
+            ThisWorldEventController.OnResultFinished.Invoke();
+        }
+        catch
+        {
+            Debug.LogError("ONRESULTFINISHED EVENT INVOKE ERROR");
+        }
+        
+
+    }
+
+
+    private void OnDestroy()
+    {
+        // 게이지 입력
+        EffectAnswer[] effAnswers = this.eff;
+        
+        foreach (EffectAnswer effAnswer in effAnswers)
+        {
+            print(effAnswer.property);
+            print(effAnswer.num);
+        }
+
+        ThisWorldEventController.OnResultFinished?.Invoke();
     }
 }

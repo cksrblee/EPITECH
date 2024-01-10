@@ -40,7 +40,6 @@ public class Subjects : MonoBehaviour
         direction = Vector3.up;
         status = SubjectStatus.Moving;
 
-        GameObject.Find("GameManager").GetComponent<UIController>().OnUserChose.AddListener(SetTriggerBackMoving);
     }
 
     // Update is called once per frame
@@ -79,7 +78,6 @@ public class Subjects : MonoBehaviour
                     }
 
                 }*/
-                GameObject.Find("GameManager").GetComponent<GameManager>().GetUIController().OnServantArrived.Invoke();
                 
             }
 

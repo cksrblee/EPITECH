@@ -125,10 +125,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public virtual void OnCardClicked()
     {
-        //if (isCardClicked)
-        //{
-        //    return; // If yes, do nothing and return
-        //}
+        ThisWorldEventController.OnUserChooseCards.Invoke();
 
     }
 }
