@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -13,7 +14,14 @@ public class GameManager : MonoBehaviour
     public UIController controller;
     Scenarios scenarios;
 
-    public int royal = 50;
+    public static int royal = 50;
+    public static int finance = 50;
+    public static int property = 50; // index
+
+    public static int resultPanelWaitTime = 4;
+    public static int scenarioIndex = 0;
+
+
 
     private void Awake()
     {

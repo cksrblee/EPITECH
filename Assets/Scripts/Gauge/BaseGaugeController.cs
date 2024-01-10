@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -74,4 +75,5 @@ public class BaseGaugeController : MonoBehaviour
     }
 
     public float GetGauge(float value) { return this.percentage; }
+
 }
