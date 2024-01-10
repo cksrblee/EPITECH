@@ -42,7 +42,7 @@ public class DisapproveCard : BaseCard
     //������ �� 
     public override void OnFlipped()
     {
-        print("FLIP");
+        //print("FLIP");
         //rectTransform.Rotate(new Vector3(0, 180, 0));
         rectTransform.gameObject.transform.Rotate(new Vector3(0, 180, 0));
 
@@ -51,11 +51,11 @@ public class DisapproveCard : BaseCard
 
     public override void OnFlipBack()
     {
-        print("FLIPBACK");
+        //print("FLIPBACK");
         rectTransform.Rotate(new Vector3(0, -180, 0));
 
         text.text = dc.answer;
-        Debug.Log("DC:ANSWER::" + dc.answer);
+        //Debug.Log("DC:ANSWER::" + dc.answer);
     }
     private IEnumerator WaitAndFlip()
     {
@@ -118,14 +118,14 @@ public class DisapproveCard : BaseCard
 
             }
 
-        }
 
-        else
-        {
-            if (!isFlipping)
+            else
             {
-                isFlipping = true;
-                FlipBackWrapper();
+                if (!isFlipping)
+                {
+                    isFlipping = true;
+                    FlipBackWrapper();
+                }
             }
         }
     }

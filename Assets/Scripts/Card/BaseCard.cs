@@ -93,7 +93,6 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public virtual void OnFlipBack() { }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("ENTER");
         isMouseOnCard = true;
         isCursorOn = true;
         if (time > 0.5f && !isFlipped)
@@ -110,7 +109,6 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        print("EXIT");
         isMouseOnCard = false;
         isCursorOn = false;
         if (time > 0.6f && isComingUp && isFlipped)
