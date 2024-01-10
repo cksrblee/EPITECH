@@ -127,7 +127,19 @@ public class ResultCard : MonoBehaviour
             }
 
         }
-        
-        ThisWorldEventController.OnResultFinished?.Invoke();
+
+
+
+        if (GameManager.scenarioIndex % 15 != 13) // 배열이므로 -1, 이 함수가 끝나고 AddSceneIndex가 실행되므로 -1 -> 총 -2
+        {
+            ThisWorldEventController.OnResultFinished?.Invoke();
+        }
+
+        else
+        {
+            ThisWorldEventController.OnKingDied?.Invoke();
+        }
+
+
     }
 }

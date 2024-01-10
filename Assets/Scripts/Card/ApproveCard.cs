@@ -39,7 +39,6 @@ public class ApproveCard : BaseCard
     //������ �� 
     public override void OnFlipped()
     {
-        print("FLIP");
         //rectTransform.Rotate(new Vector3(0, 180, 0));
         rectTransform.gameObject.transform.Rotate(new Vector3(0, 180, 0));
 
@@ -48,11 +47,10 @@ public class ApproveCard : BaseCard
 
     public override void OnFlipBack()
     {
-        print("FLIPBACK");
         rectTransform.Rotate(new Vector3(0, -180, 0));
 
         text.text = ac.answer;
-        Debug.Log("DC:ANSWER::" + ac.answer);
+        //Debug.Log("DC:ANSWER::" + ac.answer);
     }
     private IEnumerator WaitAndFlip()
     {

@@ -21,10 +21,13 @@ public class GameManager : MonoBehaviour
     static int property = 50; // index
 
     public static int resultPanelWaitTime = 4;
+    public static int kingDeadUIPanelWaitTime = 5;
     public static int scenarioIndex = 0;
 
     public static bool isGaugeValueChanged = false;
     public static int kingIndex = 1;
+
+    public bool TESTKingDeadTest = false;
 
     public static int Royal
     {
@@ -84,6 +87,12 @@ public class GameManager : MonoBehaviour
         GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
 
         ThisWorldEventController.OnGameOver.AddListener(new UnityAction(CallEndingScene));
+
+        if(TESTKingDeadTest)
+        {
+            scenarioIndex = 13;
+        }
+
     }
 
     private void Update()
@@ -96,12 +105,7 @@ public class GameManager : MonoBehaviour
             GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
         }
 
-        if (scenarioIndex / 14 > 0 && scenarioIndex % 14 == 1) 
-        {
-            kingIndex += 1;
-            ThisWorldEventController.OnKingDied.Invoke();
-            print("KING DEAD" + kingIndex.ToString());
-        }
+
     }
 
 
@@ -125,5 +129,6 @@ public class GameManager : MonoBehaviour
     {
         //패널티 줄 내용 정리   
     }
+
     
 }
