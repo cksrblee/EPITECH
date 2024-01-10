@@ -31,12 +31,6 @@ public class CardController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void MakeCards(Scenario scenario)
     {
         leftCard = new ApproveCard();
