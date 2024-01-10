@@ -18,7 +18,13 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     protected string reaction;
     protected EffectAnswer[] effect;
 
+    // added for the Result Card Image
+    protected string king_id;
+    protected string event_id;
+
     protected Status status;
+
+    //private bool isCardClicked = false;
 
     protected bool isFlipped = false;
     protected bool isComingUp = false;
@@ -33,7 +39,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private GameObject cursorIcon;
     private Camera mainCamera;
-    public virtual void Build(Answer answer, Hint hint, Reaction reaction, Effect effect, Transform PlateTransform)  { }
+    public virtual void Build(Answer answer, Hint hint, Reaction reaction, Effect effect, Transform PlateTransform, string king_id, string event_id) { }
 
 
     protected virtual void ChangeTxt()
@@ -82,9 +88,9 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    public virtual void OnFlipped() {}
+    public virtual void OnFlipped() { }
 
-    public virtual void OnFlipBack() {}
+    public virtual void OnFlipBack() { }
     public void OnPointerEnter(PointerEventData eventData)
     {
         print("ENTER");
@@ -119,29 +125,10 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public virtual void OnCardClicked()
     {
-        Debug.Log("CARD CLICKED");
-        // Load the popup prefab
-        GameObject resultPrefab = Resources.Load<GameObject>("Prefabs/ResultCard");
-        if (resultPrefab == null)
-        {
-            Debug.LogError("Popup prefab not found in Resources!");
-            return;
-        }
-        
-        // Instantiate the popup as a child of the InGameUI canvas
-        Transform uiTransform = GameObject.Find("InGameUI").transform;
-        GameObject popupInstance = Instantiate(resultPrefab, uiTransform);
+        //if (isCardClicked)
+        //{
+        //    return; // If yes, do nothing and return
+        //}
 
-        // Get the ResultCard component and call its Build method
-        var resultCardComponent = popupInstance.AddComponent<ResultCard>();
-        if (resultCardComponent != null)
-        {
-            resultCardComponent.Build(this.answer, this.reaction, this.effect);
-            resultCardComponent.LoadImage(this.king_id, this.event_id, this.answer);
-        }
-        else
-        {
-            Debug.LogError("ResultCard component not found on the popup prefab!");
-        }
     }
 }
