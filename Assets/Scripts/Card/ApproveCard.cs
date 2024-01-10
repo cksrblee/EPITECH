@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ApproveCard : BaseCard
 {
@@ -11,6 +12,8 @@ public class ApproveCard : BaseCard
     TextMeshProUGUI text;
     RectTransform rectTransform;
     ApproveCard ac;
+    Transform image;
+    Image cardImage;
 
     bool isFlipping = false;
     public override void Build(Answer answer, Hint hint, Reaction reaction, Effect effect, Transform plateTransform, string king_id, string event_id)
@@ -29,11 +32,24 @@ public class ApproveCard : BaseCard
 
 
         canvas = obj.transform.GetChild(0).transform.GetChild(0);
-        //var image = canvas.transform.GetChild(0);
+
+        cardImage = canvas.transform.GetChild(0).GetComponent<Image>();
         text1 = canvas.transform.GetChild(1);
         text = text1.gameObject.GetComponent<TextMeshProUGUI>();
         rectTransform = text1.gameObject.GetComponent<RectTransform>();
         text.text = ac.answer;
+
+        // Load and set the image
+        string cardSpritePath = "Illustrate/David_1st/" + $"{king_id}-{event_id}(agree)"; // Make sure to use the correct naming scheme here
+        Sprite cardSprite = Resources.Load<Sprite>(cardSpritePath);
+        if (cardSprite != null)
+        {
+            cardImage.sprite = cardSprite;
+        }
+        else
+        {
+            Debug.LogError("Sprite not found at path: " + cardSpritePath);
+        }
     }
 
     //������ �� 

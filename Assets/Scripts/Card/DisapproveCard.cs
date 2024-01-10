@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisapproveCard : BaseCard
 {
@@ -13,6 +14,8 @@ public class DisapproveCard : BaseCard
     TextMeshProUGUI text;
     RectTransform rectTransform;
     DisapproveCard dc;
+    Transform image;
+    Image cardImage;
 
     bool isFlipping = false;
 
@@ -31,12 +34,24 @@ public class DisapproveCard : BaseCard
         obj.name = "DisapproveCard";
 
         canvas = obj.transform.GetChild(0).transform.GetChild(0);
-        //var image = canvas.transform.GetChild(0);
+
+        cardImage = canvas.transform.GetChild(0).GetComponent<Image>();
         text1 = canvas.transform.GetChild(1);
         text = text1.gameObject.GetComponent<TextMeshProUGUI>();
         rectTransform = text1.gameObject.GetComponent<RectTransform>();
         text.text = dc.answer;
 
+        // Load and set the image
+        string cardSpritePath = "Illustrate/David_1st/" + $"{king_id}-{event_id}(disagree)"; // Make sure to use the correct naming scheme here
+        Sprite cardSprite = Resources.Load<Sprite>(cardSpritePath);
+        if (cardSprite != null)
+        {
+            cardImage.sprite = cardSprite;
+        }
+        else
+        {
+            Debug.LogError("Sprite not found at path: " + cardSpritePath);
+        }
     }
 
     //������ �� 
