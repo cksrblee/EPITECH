@@ -69,9 +69,6 @@ public class UIController : MonoBehaviour
 
         var onKingDead = new UnityAction(OnKingDead);
         ThisWorldEventController.OnKingDied.AddListener(onKingDead);
-        
-
-
     }
 
     private void InstantiateSelectPanel()
@@ -138,9 +135,6 @@ public class UIController : MonoBehaviour
         KingDeadUI.SetActive(true);
 
         StartCoroutine(WaitAndCloseKingDeadUI());
-
-        //시나리오 인덱스 상승
-        AddSceneIndex();
     }
 
     IEnumerator WaitAndCloseKingDeadUI()
