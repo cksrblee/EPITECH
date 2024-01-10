@@ -13,7 +13,7 @@ public class ApproveCard : BaseCard
     ApproveCard ac;
 
     bool isFlipping = false;
-    public override void Build(Answer answer, Hint hint, Reaction reaction, Effect effect, Transform plateTransform)
+    public override void Build(Answer answer, Hint hint, Reaction reaction, Effect effect, Transform plateTransform, string king_id, string event_id)
     {
         var obj = Instantiate(Resources.Load("Prefabs/Card", typeof(GameObject)) as GameObject, plateTransform);
         ac = obj.AddComponent<ApproveCard>();
@@ -21,7 +21,9 @@ public class ApproveCard : BaseCard
         ac.answer = answer.agree;
         ac.hint = hint.agree;
         ac.reaction = reaction.agree;
-        ac.effect = effect.agree;
+        ac.effect = effect.agree; 
+        ac.king_id = king_id;
+        ac.event_id = event_id;
 
         obj.name = "ApproveCard";
 
@@ -121,6 +123,40 @@ public class ApproveCard : BaseCard
                 isFlipping = true;
                 FlipBackWrapper();
             }
+        }
+    }
+
+    public override void OnCardClicked()
+    {
+
+        GameObject final_card = GameObject.FindGameObjectWithTag("ResultCard");
+        if (final_card != null)
+        {
+            Destroy(final_card); // Destroy the card
+        }
+        Debug.Log("CARD CLICKED");
+        // Load the popup prefab
+        GameObject resultPrefab = Resources.Load<GameObject>("Prefabs/ResultCard");
+        if (resultPrefab == null)
+        {
+            Debug.LogError("Popup prefab not found in Resources!");
+            return;
+        }
+
+        // Instantiate the popup as a child of the InGameUI canvas
+        Transform uiTransform = GameObject.Find("InGameUI").transform;
+        GameObject popupInstance = Instantiate(resultPrefab, uiTransform);
+
+        // Get the ResultCard component and call its Build method
+        var resultCardComponent = popupInstance.AddComponent<ResultCard>();
+        if (resultCardComponent != null)
+        {
+            resultCardComponent.Build(this.answer, this.reaction, this.effect);
+            resultCardComponent.LoadImage(this.king_id, this.event_id, "agree");
+        }
+        else
+        {
+            Debug.LogError("ResultCard which is ApproveCard component not found on the popup prefab!");
         }
     }
 

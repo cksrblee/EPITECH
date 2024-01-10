@@ -11,6 +11,7 @@ public class CardController : MonoBehaviour
     public Transform rightCardPlateTransform;
     private ApproveCard leftCard;
     private DisapproveCard rightCard;
+    private ResultCard resultCard;
 
     public Scenarios scenarios;
 
@@ -41,8 +42,8 @@ public class CardController : MonoBehaviour
         leftCard = new ApproveCard();
         rightCard = new DisapproveCard();
 
-        leftCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, leftCardPlateTransform);
-        rightCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, rightCardPlateTransform);
+        leftCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, leftCardPlateTransform, scenario.king_id, scenario.event_id);
+        rightCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, rightCardPlateTransform, scenario.king_id, scenario.event_id);
 
         // Dynamically construct the image file name
         string leftCardimage = $"{scenario.king_id}-{scenario.event_id}(agree)";
