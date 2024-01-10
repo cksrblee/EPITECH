@@ -13,9 +13,9 @@ public class BaseGaugeController : MonoBehaviour
     public Image financeFillImage;
 
     // Percentage value
-    public float royalPercentage = 50;
-    public float popularityPercentage = 50;
-    public float financePercentage = 50;
+    public float royalPercentage = GameManager.Royal;
+    public float popularityPercentage = GameManager.Popularity;
+    public float financePercentage = GameManager.Finance;
 
     // Gauge is 0 <= x <= 1
     private float royalGauge = 0.5f;
@@ -89,14 +89,14 @@ public class BaseGaugeController : MonoBehaviour
 
     public void ChangePercentages(float royal_val, float popularity_val, float finance_val)
     {
-        royalPercentage += royal_val;
-        popularityPercentage += popularity_val;
-        financePercentage += finance_val; 
+        royalPercentage = royal_val;
+        popularityPercentage = popularity_val;
+        financePercentage = finance_val; 
     }
 
     protected bool CheckZeroPoint(float name_percentage)
     {
-        if (name_percentage <= 0)
+        if (name_percentage <= 0.1)
         {
             name_percentage = 0.0f;
             return true;

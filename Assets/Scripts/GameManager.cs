@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static int Property
+    public static int Popularity
     {
         get => property;
 
@@ -77,7 +78,12 @@ public class GameManager : MonoBehaviour
         ThisWorldEventController.OnChooseFailed.AddListener(new UnityEngine.Events.UnityAction(OutOfTimePanelty));
 
         //Register Callbacks
-        //GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercent();
+        print(Royal);
+        print(Popularity);
+        print(Finance);
+        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+
+        ThisWorldEventController.OnGameOver.AddListener(new UnityAction(CallEndingScene));
     }
 
     private void Update()
@@ -87,6 +93,7 @@ public class GameManager : MonoBehaviour
             isGaugeValueChanged = false;
 
             //Call Gauge Controller
+            GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
         }
 
         if (scenarioIndex / 14 > 0 && scenarioIndex % 14 == 1) 

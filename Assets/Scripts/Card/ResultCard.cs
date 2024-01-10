@@ -121,9 +121,9 @@ public class ResultCard : MonoBehaviour
                 GameManager.Finance += effAnswer.num;
             }
 
-            else if (effAnswer.property == "Property" || effAnswer.property == "property")
+            else if (effAnswer.property == "Popularity" || effAnswer.property == "popularity")
             {
-                GameManager.Property += effAnswer.num;
+                GameManager.Popularity += effAnswer.num;
             }
 
         }
