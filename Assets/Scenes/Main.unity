@@ -43754,7 +43754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  TESTKingDeadTest: 1
+  TESTKingDeadTest: 0
 --- !u!4 &1745150938
 Transform:
   m_ObjectHideFlags: 0

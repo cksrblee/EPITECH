@@ -7,7 +7,6 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.InputManagerEntry;
 
 public class ReadingBookMngr : MonoBehaviour
 {
