@@ -35,7 +35,7 @@ public class ResultCard : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(FinishResultPanel()); // ³¡³ª±â¸¦ ±â´Ù¸®°í ÀÌº¥Æ® ÄÝ¹éÀ» ¿äÃ»ÇÏ´Â ÇÔ¼ö
+        StartCoroutine(FinishResultPanel()); // ï¿½ï¿½ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ý¹ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     }
 
     public void Build(string answer, string reaction, EffectAnswer[] effect)
@@ -103,7 +103,7 @@ public class ResultCard : MonoBehaviour
 
     private void OnDestroy()
     {
-        // °ÔÀÌÁö ÀÔ·Â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
         EffectAnswer[] effAnswers = this.eff;
         
         foreach (EffectAnswer effAnswer in effAnswers)

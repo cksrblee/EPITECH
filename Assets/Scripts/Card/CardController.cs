@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,16 @@ public class CardController : MonoBehaviour
     private ApproveCard leftCard;
     private DisapproveCard rightCard;
     private ResultCard resultCard;
+    
+    // Variables for Pop Up Quiz
+    public GameObject quizPanel;
+    public Button toggleButton;
+    public TextMeshProUGUI QuestionText;
+
+    // For Quiz Animation
+    //public Animator quizPanelAnimator; // Reference to the Animator component
+    //private bool isPanelOpen = false;
+
 
     public Scenarios scenarios;
 
@@ -27,8 +38,65 @@ public class CardController : MonoBehaviour
         //Set First Card 
         curScenarioIndex = GameManager.scenarioIndex;
 
+        // Start with the quiz panel active for 3 seconds
+        //StartCoroutine(ActivatePanelWithAnimation());
+        quizPanel.SetActive(true);
+        StartCoroutine(DeactivatePanelAfterTime(3.0f));
+
+        // Add a listener to the button to call TogglePanel method when clicked
+        toggleButton.onClick.AddListener(TogglePanel);
+
         MakeCards(scenarios.scenarios[curScenarioIndex]);
 
+    }
+
+    //IEnumerator ActivatePanelWithAnimation()
+    //{
+    //    quizPanel.SetActive(true);
+    //    quizPanelAnimator.SetTrigger("Open"); // Trigger the animation to open the panel
+    //    yield return new WaitForSeconds(3.0f);
+    //    quizPanelAnimator.SetTrigger("Close"); // You'll need to create this trigger and animation clip
+    //    yield return new WaitForSeconds(0.5f); // Adjust this time to the length of your close animation
+    //    quizPanel.SetActive(false);
+    //}
+
+    //void TogglePanel()
+    //{
+    //    isPanelOpen = !isPanelOpen;
+    //    if (isPanelOpen)
+    //    {
+    //        quizPanel.SetActive(true);
+    //        quizPanelAnimator.SetTrigger("Open");
+    //    }
+    //    else
+    //    {
+    //        quizPanelAnimator.SetTrigger("Close");
+    //        // You might want to deactivate the panel after the animation finishes
+    //        StartCoroutine(DeactivateAfterAnimation());
+    //    }
+    //}
+
+    //IEnumerator DeactivateAfterAnimation()
+    //{
+    //    // Wait for the animation to finish before deactivating the panel
+    //    yield return new WaitForSeconds(0.5f); // Adjust this time to the length of your close animation
+    //    quizPanel.SetActive(false);
+    //}
+
+    IEnumerator DeactivatePanelAfterTime(float time)
+    {
+        // Wait for the specified time
+        QuestionText.text = scenarios.scenarios[curScenarioIndex].advise;
+        yield return new WaitForSeconds(time);
+
+        // Deactivate the panel
+        quizPanel.SetActive(false);
+    }
+
+    void TogglePanel()
+    {
+        // Toggle the active state of the quiz panel
+        quizPanel.SetActive(!quizPanel.activeSelf);
     }
 
     // Update is called once per frame

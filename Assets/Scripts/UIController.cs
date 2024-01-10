@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,6 +17,8 @@ public class UIController : MonoBehaviour
 
     private GameObject cardUIPanelObj;
     private GameObject clockUIPanelObj;
+
+    bool isKingDead = true;
     int scenarioIndex
     {
         get => GameManager.scenarioIndex;
@@ -28,6 +32,7 @@ public class UIController : MonoBehaviour
     // Variables for Scene Number
     public GameObject SceneNumBG;
     public TextMeshProUGUI SceneNumText;
+    public GameObject KingDeadUI;
 
     enum UIStatus
     {
@@ -39,16 +44,34 @@ public class UIController : MonoBehaviour
         MainUI.SetActive(false);
 
         InstantiateSelectPanel();  //첫 시작을 위한 코드
+        UpdateSceneIndexText();
+
         //var openPanelAction = new UnityAction(InstantiateSelectPanel);
         // OnUserChose.AddListener(openPanelAction);
+        var addSceneIndex = new UnityAction(AddSceneIndex);
+        ThisWorldEventController.OnRestartGame.AddListener(addSceneIndex);
+        ThisWorldEventController.OnChooseFailed.AddListener(addSceneIndex);
+        ThisWorldEventController.OnResultFinished.AddListener(addSceneIndex);
+
         var openPanelAction = new UnityAction(InstantiateSelectPanel);
         ThisWorldEventController.OnResultFinished.AddListener(openPanelAction);
+
+        ThisWorldEventController.OnRestartGame.AddListener(openPanelAction);
 
         var destroyPopUpPanelAction = new UnityAction(DestroyPopUpPanels);
         ThisWorldEventController.OnChooseFailed.AddListener(destroyPopUpPanelAction);
         ThisWorldEventController.OnResultPanelOpened.AddListener(destroyPopUpPanelAction);
 
         ThisWorldEventController.OnChooseFailed.AddListener(openPanelAction);
+
+        var updateSceneIndexUI = new UnityAction(UpdateSceneIndexText);
+        ThisWorldEventController.OnSceneIndexChanged.AddListener(updateSceneIndexUI);
+
+        var onKingDead = new UnityAction(OnKingDead);
+        ThisWorldEventController.OnKingDied.AddListener(onKingDead);
+        
+
+
     }
 
     private void InstantiateSelectPanel()
@@ -60,7 +83,6 @@ public class UIController : MonoBehaviour
         //CardUI.SetActive(true);
         cardUIPanelObj = GameObject.Instantiate(CardUIPanel, UIParent.transform); //UI Controll에서는 카드 패널을 부를 뿐 카드를 만들지는 않음
 
-        SceneNumText.text = (GetScenarioIndex() + 1).ToString();
 
         yield return new WaitForEndOfFrame();
         clockUIPanelObj = GameObject.Instantiate(ClockUI, UIParent.transform);
@@ -77,23 +99,12 @@ public class UIController : MonoBehaviour
             //Debug.Log(time);
             if(time > 10)
             {
-                Debug.Log("TIME TO SWTICH");
-                //오브젝트 삭제
-
                 DestroyPopUpPanels();
-                //실패
-
                 ThisWorldEventController.OnChooseFailed.Invoke();
 
                 break;
             }
         }
-
-        //시나리오 인덱스 상승
-        scenarioIndex++;
-        GameManager.scenarioIndex = this.scenarioIndex;
-
-        print(scenarioIndex);
         yield return new WaitForSeconds(0.5f);
     }
 
@@ -106,6 +117,45 @@ public class UIController : MonoBehaviour
     {
         Destroy(cardUIPanelObj);
         Destroy(clockUIPanelObj);
+    }
+
+    public void OnKingDead()
+    {
+        print("KING DEAD!!!");
+        isKingDead = true;
+        //open kingDead UI
+
+        KingDeadUI.SetActive(true);
+
+        StartCoroutine(WaitAndCloseKingDeadUI());
+
+        //시나리오 인덱스 상승
+        AddSceneIndex();
+    }
+
+    IEnumerator WaitAndCloseKingDeadUI()
+    {
+        yield return new WaitForSeconds(GameManager.kingDeadUIPanelWaitTime);
+        FinishKingDeadUI();
+    }
+
+    public void FinishKingDeadUI()
+    {
+        isKingDead = false;
+        KingDeadUI.SetActive(false);
+
+        ThisWorldEventController.OnRestartGame.Invoke();
+    }
+
+    public void UpdateSceneIndexText()
+    {
+        SceneNumText.text = (scenarioIndex).ToString();
+    }
+
+    public void AddSceneIndex()
+    {
+        scenarioIndex++;
+        ThisWorldEventController.OnSceneIndexChanged.Invoke();
     }
 
 }
