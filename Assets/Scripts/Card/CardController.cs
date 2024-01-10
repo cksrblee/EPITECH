@@ -99,12 +99,6 @@ public class CardController : MonoBehaviour
         quizPanel.SetActive(!quizPanel.activeSelf);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void MakeCards(Scenario scenario)
     {
         leftCard = new ApproveCard();
