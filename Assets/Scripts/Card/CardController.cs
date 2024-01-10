@@ -25,7 +25,7 @@ public class CardController : MonoBehaviour
         scenarios = GameObject.Find("GameManager").GetComponent<GameManager>().GetScenarios();
 
         //Set First Card 
-        curScenarioIndex = GameObject.Find("GameManager").GetComponent<UIController>().GetScenarioIndex();
+        curScenarioIndex = GameManager.scenarioIndex;
 
         MakeCards(scenarios.scenarios[curScenarioIndex]);
 

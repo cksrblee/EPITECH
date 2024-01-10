@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -14,13 +16,52 @@ public class GameManager : MonoBehaviour
     public UIController controller;
     Scenarios scenarios;
 
-    public static int royal = 50;
-    public static int finance = 50;
-    public static int property = 50; // index
+    static int royal = 50;
+    static int finance = 50;
+    static int property = 50; // index
 
     public static int resultPanelWaitTime = 4;
     public static int scenarioIndex = 0;
 
+    public static bool isGaugeValueChanged = false;
+    public static int kingIndex = 1;
+
+    public static int Royal
+    {
+        get => royal;
+
+        set
+        {
+            royal = value;
+            isGaugeValueChanged = true;
+            ThisWorldEventController.OnRoyalVariableChanged.Invoke();
+
+        }
+    }
+
+    public static int Finance
+    {
+        get => finance;
+
+        set
+        {
+            finance = value;
+            isGaugeValueChanged = true;
+            ThisWorldEventController.OnFinanceVariableChanged.Invoke();
+        }
+    }
+
+    public static int Popularity
+    {
+        get => property;
+
+        set
+        {
+            property = value;
+            isGaugeValueChanged = true;
+            ThisWorldEventController.OnPropertyVariableChanged.Invoke();
+        }
+    }
 
 
     private void Awake()
@@ -33,9 +74,37 @@ public class GameManager : MonoBehaviour
         scenarios = JsonConvert.DeserializeObject<Scenarios>(jsonString);
 
         Debug.Log("SCENARIOS LENGTH:" + scenarios.scenarios.Length);
+
+        ThisWorldEventController.OnChooseFailed.AddListener(new UnityEngine.Events.UnityAction(OutOfTimePanelty));
+
+        //Register Callbacks
+        print(Royal);
+        print(Popularity);
+        print(Finance);
+        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+
+        ThisWorldEventController.OnGameOver.AddListener(new UnityAction(CallEndingScene));
     }
 
-    
+    private void Update()
+    {
+        if (isGaugeValueChanged)
+        {
+            isGaugeValueChanged = false;
+
+            //Call Gauge Controller
+            GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+        }
+
+        if (scenarioIndex / 14 > 0 && scenarioIndex % 14 == 1) 
+        {
+            kingIndex += 1;
+            ThisWorldEventController.OnKingDied.Invoke();
+            print("KING DEAD" + kingIndex.ToString());
+        }
+    }
+
+
     public UIController GetUIController()
     {
         return this.controller;
@@ -50,4 +119,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+
+    public void OutOfTimePanelty()
+    {
+        //패널티 줄 내용 정리   
+    }
+    
 }
