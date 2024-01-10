@@ -108,6 +108,7 @@ public class UIController : MonoBehaviour
 
                 else
                 {
+                    GameObject.Find("GameManager").GetComponent<GameManager>().OutOfTimePanelty();
                     ThisWorldEventController.OnKingDied?.Invoke();
                 }
 

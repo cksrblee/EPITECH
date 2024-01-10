@@ -81,9 +81,6 @@ public class GameManager : MonoBehaviour
         ThisWorldEventController.OnChooseFailed.AddListener(new UnityEngine.Events.UnityAction(OutOfTimePanelty));
 
         //Register Callbacks
-        print(Royal);
-        print(Popularity);
-        print(Finance);
         GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
 
         ThisWorldEventController.OnGameOver.AddListener(new UnityAction(CallEndingScene));
@@ -127,7 +124,11 @@ public class GameManager : MonoBehaviour
 
     public void OutOfTimePanelty()
     {
+        Royal -= 10;
+        Popularity -= 10;
+        Finance -= 10;
         //패널티 줄 내용 정리   
+        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
     }
 
     

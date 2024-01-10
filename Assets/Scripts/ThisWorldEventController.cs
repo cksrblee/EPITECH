@@ -19,14 +19,4 @@ public class ThisWorldEventController : MonoBehaviour
     public static UnityEvent OnPropertyVariableChanged = new UnityEvent();
     
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

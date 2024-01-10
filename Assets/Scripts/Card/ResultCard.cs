@@ -79,7 +79,7 @@ public class ResultCard : MonoBehaviour
     {
         if(isLoadImageFinished && !isApplied)
         {
-            final_card = GameObject.FindGameObjectWithTag("ResultCard").transform.GetChild(1).GetChild(0).GetChild(0);
+            final_card = gameObject.transform.GetChild(1).GetChild(0).GetChild(0);
             StartCoroutine(ApplySprite(final_card, resultSprite));
         }
     }
@@ -111,8 +111,8 @@ public class ResultCard : MonoBehaviour
         
         foreach (EffectAnswer effAnswer in effAnswers)
         {
-            print(effAnswer.property);
-            print(effAnswer.num);
+            //print(effAnswer.property);
+            //print(effAnswer.num);
 
             if(effAnswer.property == "royal" || effAnswer.property == "Royal")
             {
