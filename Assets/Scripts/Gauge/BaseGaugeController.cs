@@ -1,79 +1,125 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BaseGaugeController : MonoBehaviour
 {
-    public Image fillImage; // This is the filled image.
-    public float percentage = 0;
-    private float gauge = 0.5f; // Gauge is 0 <= x <= 1
-    private float epsilon = 0.01f; // Epsilon value for stopping interpolation
-    bool isPointZero = false;
-    protected virtual void AddPoints(float points) {
-        SetGauge(percentage + points);
-        
-    }
-    protected virtual void SubtractPoints(float points) {
-        SetGauge(percentage - points);
-        
-    }
+    // For the Full Image;
+    public Image royalFillImage;
+    public Image popularityFillImage;
+    public Image financeFillImage;
 
-    protected bool CheckZeroPoint()
+    // Percentage value
+    public float royalPercentage = 50;
+    public float popularityPercentage = 50;
+    public float financePercentage = 50;
+
+    // Gauge is 0 <= x <= 1
+    private float royalGauge = 0.5f;
+    private float popularityGauge = 0.5f;
+    private float financeGauge = 0.5f;
+
+    // Epsilon value for stopping interpolation
+    private float epsilon = 0.01f; 
+
+    bool isPointZero = false;
+
+    private void UpdateGauge(ref float gauge, float percentage, Image fillImage)
     {
-        if (percentage <= 0)
+        float targetGauge = percentage / 100f;
+        if (Mathf.Abs(targetGauge - gauge) < epsilon)
         {
-            percentage = 0.0f;
-            return true;
-        }
-        if (percentage >= 99.9f)
-        {
-            percentage = 100.0f;
-            return false;
+            gauge = targetGauge;
         }
         else
         {
-            return false;
+            gauge = Mathf.Lerp(gauge, targetGauge, Time.deltaTime * 3);
         }
+        fillImage.fillAmount = gauge;
     }
 
-    protected virtual void Update()
+    private void Update()
     {
-        if (CheckZeroPoint())
+        if (CheckAllZeroPoint())
         {
-            //0 포인트일 경우
-            // 포인트 더하는 함수 더하기
             GameManager.CallEndingScene();
         }
 
-        else
-        {
-            // not implemented
-        }
-
-
-        float targetGauge = percentage / 100f; // Convert the target percentage to a value between 0 and 1
-
-        if (Mathf.Abs(targetGauge - gauge) < epsilon)
-        {
-            gauge = targetGauge; // If it's within epsilon, just set to the target value
-        }
-        else
-        {
-            gauge = Mathf.Lerp(gauge, targetGauge, Time.deltaTime * 3); // Otherwise, smoothly interpolate towards the target value
-        }
-
-        fillImage.fillAmount = gauge; // Update the fillAmount in the gauge
+        UpdateGauge(ref royalGauge, royalPercentage, royalFillImage);
+        UpdateGauge(ref popularityGauge, popularityPercentage, popularityFillImage);
+        UpdateGauge(ref financeGauge, financePercentage, financeFillImage);
     }
 
-    // Setting the gauge
-    public void SetGauge(float value)
+    public void SetGauge(string gaugeType, float value)
     {
-        gauge = Mathf.Clamp01(value); // Set the value between 0 and 1
-        fillImage.fillAmount = gauge; // Update the fillAbmout in the gauge
+        switch (gaugeType)
+        {
+            case "royal":
+                royalGauge = Mathf.Clamp01(value);
+                break;
+            case "popularity":
+                popularityGauge = Mathf.Clamp01(value);
+                break;
+            case "finance":
+                financeGauge = Mathf.Clamp01(value);
+                break;
+        }
     }
 
-    public float GetGauge(float value) { return this.percentage; }
+    public float GetPercentage(string gaugeType)
+    {
+        switch (gaugeType)
+        {
+            case "royal":
+                return royalPercentage;
+            case "popularity":
+                return popularityPercentage;
+            case "finance":
+                return financePercentage;
+            default:
+                return 0;
+        }
+    }
 
+    public void ChangePercentages(float royal_val, float popularity_val, float finance_val)
+    {
+        royalPercentage += royal_val;
+        popularityPercentage += popularity_val;
+        financePercentage += finance_val; 
+    }
+
+    protected bool CheckZeroPoint(float name_percentage)
+    {
+        if (name_percentage <= 0)
+        {
+            name_percentage = 0.0f;
+            return true;
+        }
+        if (name_percentage >= 99.9f)
+        {
+            name_percentage = 100.0f;
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    protected bool CheckAllZeroPoint()
+    {
+        if(CheckZeroPoint(royalPercentage) || 
+           CheckZeroPoint(popularityPercentage) || 
+           CheckZeroPoint(financePercentage))
+        {
+            return true;
+        }
+        else 
+        { 
+            return false; 
+        }
+    }
 }
