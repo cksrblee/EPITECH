@@ -38,50 +38,26 @@ public class CardController : MonoBehaviour
         //Set First Card 
         curScenarioIndex = GameManager.scenarioIndex;
 
-        // Start with the quiz panel active for 3 seconds
+        // Start with the quiz panel active for 5 seconds
         //StartCoroutine(ActivatePanelWithAnimation());
         quizPanel.SetActive(true);
-        StartCoroutine(DeactivatePanelAfterTime(3.0f));
+        StartCoroutine(DeactivatePanelAfterTime(5.0f));
 
         // Add a listener to the button to call TogglePanel method when clicked
         toggleButton.onClick.AddListener(TogglePanel);
 
-        MakeCards(scenarios.scenarios[curScenarioIndex]);
-
+        // Make Cards after 5seconds
+        StartCoroutine(DelayedMakeCards());
     }
 
-    //IEnumerator ActivatePanelWithAnimation()
-    //{
-    //    quizPanel.SetActive(true);
-    //    quizPanelAnimator.SetTrigger("Open"); // Trigger the animation to open the panel
-    //    yield return new WaitForSeconds(3.0f);
-    //    quizPanelAnimator.SetTrigger("Close"); // You'll need to create this trigger and animation clip
-    //    yield return new WaitForSeconds(0.5f); // Adjust this time to the length of your close animation
-    //    quizPanel.SetActive(false);
-    //}
+    IEnumerator DelayedMakeCards()
+    {
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(5.0f);
 
-    //void TogglePanel()
-    //{
-    //    isPanelOpen = !isPanelOpen;
-    //    if (isPanelOpen)
-    //    {
-    //        quizPanel.SetActive(true);
-    //        quizPanelAnimator.SetTrigger("Open");
-    //    }
-    //    else
-    //    {
-    //        quizPanelAnimator.SetTrigger("Close");
-    //        // You might want to deactivate the panel after the animation finishes
-    //        StartCoroutine(DeactivateAfterAnimation());
-    //    }
-    //}
-
-    //IEnumerator DeactivateAfterAnimation()
-    //{
-    //    // Wait for the animation to finish before deactivating the panel
-    //    yield return new WaitForSeconds(0.5f); // Adjust this time to the length of your close animation
-    //    quizPanel.SetActive(false);
-    //}
+        // Call MakeCards method
+        MakeCards(scenarios.scenarios[curScenarioIndex]);
+    }
 
     IEnumerator DeactivatePanelAfterTime(float time)
     {

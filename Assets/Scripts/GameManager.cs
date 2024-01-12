@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     private void Awake()
     {
         controller = gameObject.GetComponent<UIController>();
@@ -101,10 +100,7 @@ public class GameManager : MonoBehaviour
             //Call Gauge Controller
             GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
         }
-
-
     }
-
 
     public UIController GetUIController()
     {
@@ -127,9 +123,7 @@ public class GameManager : MonoBehaviour
         Royal -= 10;
         Popularity -= 10;
         Finance -= 10;
-        //ÆÐ³ÎÆ¼ ÁÙ ³»¿ë Á¤¸®   
+        //ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½   
         GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
     }
-
-    
 }
