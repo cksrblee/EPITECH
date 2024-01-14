@@ -37,7 +37,10 @@ public class CardController : MonoBehaviour
 
         //Set First Card 
         curScenarioIndex = GameManager.scenarioIndex;
-
+        if(curScenarioIndex >= GameManager.endingScenarioIndex)
+        {
+            return;
+        }
         // Start with the quiz panel active for 5 seconds
         //StartCoroutine(ActivatePanelWithAnimation());
         quizPanel.SetActive(true);
@@ -77,10 +80,16 @@ public class CardController : MonoBehaviour
 
     void MakeCards(Scenario scenario)
     {
-        leftCard = new ApproveCard();
-        rightCard = new DisapproveCard();
-        
-        leftCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, leftCardPlateTransform, scenario.king_id, scenario.event_id);
-        rightCard.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, rightCardPlateTransform, scenario.king_id, scenario.event_id);
+        //leftCard = new ApproveCard();
+        //rightCard = new DisapproveCard();
+
+
+        var rightCard = Instantiate(Resources.Load("Prefabs/Card", typeof(GameObject)) as GameObject, rightCardPlateTransform);
+        var leftCard = Instantiate(Resources.Load("Prefabs/Card", typeof(GameObject)) as GameObject, leftCardPlateTransform);
+        var ac = leftCard.AddComponent<ApproveCard>();
+        var dc = rightCard.AddComponent<DisapproveCard>();
+
+        ac.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, leftCardPlateTransform, scenario.king_id, scenario.event_id);
+        dc.Build(scenario.answer, scenario.hint, scenario.reaction, scenario.effect, rightCardPlateTransform, scenario.king_id, scenario.event_id);
     }
 }

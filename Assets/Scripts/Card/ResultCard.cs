@@ -60,7 +60,6 @@ public class ResultCard : MonoBehaviour
     public void LoadImage(string king_id, string event_id, string agreeORnot)
     {
         // Correct the path and load Sprites, not Images
-        print("RESULT CARD 1");
         finalCardName = $"{king_id}-{event_id}({agreeORnot})";
         resultSprite = Resources.Load<Sprite>("Illustrate/David_1st/" + finalCardName);
         

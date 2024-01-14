@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using TMPro;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -97,7 +98,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         isCursorOn = true;
         if (time > 0.5f && !isFlipped)
         {
-            animator.SetTrigger("Flip");
+            animator.SetTrigger("Flip"); // Set Trigger for flipping
 
             isFlipped = true;
             isComingUp = true; // ù���� ���� ����
@@ -113,7 +114,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         isCursorOn = false;
         if (time > 0.6f && isComingUp && isFlipped)
         {
-            animator.SetTrigger("FlipBack");
+            animator.SetTrigger("FlipBack"); // set Trigger for backFlip
             time = 0;
             isFlipped = false;
 
@@ -125,5 +126,16 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         ThisWorldEventController.OnUserChooseCards.Invoke();
 
+    }
+
+    protected void ChangeCardPanelBackground(Image background, Sprite inputSprite)
+    {
+        background.sprite = inputSprite;
+    }
+
+    protected virtual void LoadCardPanelBackground(ref Sprite cardFront, ref Sprite cardBack)
+    {
+        cardFront = Resources.Load<Sprite>("UI/Card2");
+        cardBack = Resources.Load<Sprite>("UI/Card1");
     }
 }

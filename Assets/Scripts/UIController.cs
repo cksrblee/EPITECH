@@ -19,6 +19,7 @@ public class UIController : MonoBehaviour
     private GameObject clockUIPanelObj;
 
     bool isKingDead = true;
+    bool isTestamentSelected = false;
     int scenarioIndex
     {
         get => GameManager.scenarioIndex;
@@ -33,6 +34,7 @@ public class UIController : MonoBehaviour
     public GameObject SceneNumBG;
     public TextMeshProUGUI SceneNumText;
     public GameObject KingDeadUI;
+    public GameObject TestamentResultUI;
 
     enum UIStatus
     {
@@ -94,11 +96,11 @@ public class UIController : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
             //Debug.Log(time);
-            if(time > 15)
+            if(time > GameManager.timerDuration)
             {
                 DestroyPopUpPanels();
 
-                if (GameManager.scenarioIndex % 15 != 13) // 배열이므로 -1, 이 함수가 끝나고 AddSceneIndex가 실행되므로 -1 -> 총 -2
+                if (GameManager.scenarioIndex % 14 != 13) // 배열이므로 -1, 이 함수가 끝나고 AddSceneIndex가 실행되므로 -1 -> 총 -2
                 {
                     ThisWorldEventController.OnChooseFailed?.Invoke();
                 }
@@ -133,22 +135,13 @@ public class UIController : MonoBehaviour
         //open kingDead UI
 
         KingDeadUI.SetActive(true);
-
-        StartCoroutine(WaitAndCloseKingDeadUI());
     }
 
-    IEnumerator WaitAndCloseKingDeadUI()
-    {
-        yield return new WaitForSeconds(GameManager.kingDeadUIPanelWaitTime);
-        FinishKingDeadUI();
-    }
 
     public void FinishKingDeadUI()
     {
         isKingDead = false;
         KingDeadUI.SetActive(false);
-
-        ThisWorldEventController.OnRestartGame.Invoke();
     }
 
     public void UpdateSceneIndexText()
@@ -160,6 +153,22 @@ public class UIController : MonoBehaviour
     {
         scenarioIndex++;
         ThisWorldEventController.OnSceneIndexChanged.Invoke();
+    }
+
+    public void OnTestament1Selected()
+    {
+        TestamentResultUI.SetActive(true);
+        isTestamentSelected = true;
+        FinishKingDeadUI();
+        ThisWorldEventController.OnTestament1Selected.Invoke();
+    }
+
+    public void OnTestament2Selected()
+    {
+        TestamentResultUI.SetActive(true);
+        isTestamentSelected = true;
+        FinishKingDeadUI();
+        ThisWorldEventController.OnTestament2Selected.Invoke();
     }
 
 }

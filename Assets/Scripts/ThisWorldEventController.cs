@@ -19,4 +19,8 @@ public class ThisWorldEventController : MonoBehaviour
     public static UnityEvent OnPropertyVariableChanged = new UnityEvent();
     
 
+    //Testament
+    public static UnityEvent OnTestament1Selected = new UnityEvent();
+    public static UnityEvent OnTestament2Selected = new UnityEvent();
+
 }

@@ -6,8 +6,10 @@ public class TimerUI : MonoBehaviour
 {
     // hand = rotating obj
     public Transform hand;
-    private float timerDuration = 15f; // Timer goes for 10 seconds
+    private float timerDuration = GameManager.timerDuration;
     private float timer; // Current Timer
+
+    private float timeScale = 1f;
 
     void Start()
     {
@@ -16,6 +18,7 @@ public class TimerUI : MonoBehaviour
 
     void Update()
     {
+        //timeScale = GameManager.timerDuration;
         if (timer > 0)
         {
             timer -= Time.deltaTime; // timer goes down

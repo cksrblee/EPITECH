@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,13 +15,18 @@ public class ApproveCard : BaseCard
     ApproveCard ac;
     Transform image;
     Image cardImage;
+    Image cardBackgroundImage;
+
+    Sprite cardSprite;
+    Sprite characterImg;
+
+    Sprite cardPanelFront;
+    Sprite cardPanelBack;
 
     bool isFlipping = false;
     public override void Build(Answer answer, Hint hint, Reaction reaction, Effect effect, Transform plateTransform, string king_id, string event_id)
     {
-        var obj = Instantiate(Resources.Load("Prefabs/Card", typeof(GameObject)) as GameObject, plateTransform);
-        ac = obj.AddComponent<ApproveCard>();
-
+        ac = gameObject.GetComponent<ApproveCard>();
         ac.answer = answer.agree;
         ac.hint = hint.agree;
         ac.reaction = reaction.agree;
@@ -28,12 +34,14 @@ public class ApproveCard : BaseCard
         ac.king_id = king_id;
         ac.event_id = event_id;
 
-        obj.name = "ApproveCard";
+        gameObject.name = "ApproveCard";
 
 
-        canvas = obj.transform.GetChild(0).transform.GetChild(0);
+        canvas = gameObject.transform.GetChild(0).transform.GetChild(0);
 
         cardImage = canvas.transform.GetChild(0).GetComponent<Image>();
+        cardBackgroundImage = gameObject.transform.GetChild(0).GetComponent<Image>();
+
         text1 = canvas.transform.GetChild(1);
         text = text1.gameObject.GetComponent<TextMeshProUGUI>();
         rectTransform = text1.gameObject.GetComponent<RectTransform>();
@@ -41,49 +49,74 @@ public class ApproveCard : BaseCard
 
         // Load and set the image
         string cardSpritePath = "Illustrate/David_1st/" + $"{king_id}-{event_id}(agree)"; // Make sure to use the correct naming scheme here
-        Sprite cardSprite = Resources.Load<Sprite>(cardSpritePath);
-        if (cardSprite != null)
+        cardSprite = Resources.Load<Sprite>(cardSpritePath);
+        string characterSpritePath = "Illustrate/Characters/1";
+        try
         {
-            cardImage.sprite = cardSprite;
+            characterImg = Resources.Load<Sprite>(characterSpritePath);
         }
-        else
+        catch
         {
-            Debug.LogError("Sprite not found at path: " + cardSpritePath);
+            Debug.LogError("ERROR: CHARACTER IMG LOAD ERROR");
         }
+        base.LoadCardPanelBackground(ref cardPanelFront, ref cardPanelBack);
     }
 
     //������ �� 
     public override void OnFlipped()
     {
         //rectTransform.Rotate(new Vector3(0, 180, 0));
-        rectTransform.gameObject.transform.Rotate(new Vector3(0, 180, 0));
-
-        text.text = ac.hint;
+        //rectTransform.gameObject.transform.Rotate(new Vector3(0, 180, 0));
+        try
+        {
+            text.text = ac.hint;
+            cardBackgroundImage.sprite = cardPanelBack;
+            cardImage.sprite = characterImg;
+        }
+        catch {
+            Debug.LogError("APPROVE: FLIPPING ERROR");
+        }
     }
 
     public override void OnFlipBack()
     {
-        rectTransform.Rotate(new Vector3(0, -180, 0));
+        //rectTransform.Rotate(new Vector3(0, -180, 0));
+        try
+        {
 
-        text.text = ac.answer;
-        //Debug.Log("DC:ANSWER::" + ac.answer);
+            text.text = ac.answer;
+            //Debug.Log("DC:ANSWER::" + ac.answer);
+
+            //set illustraion
+            cardBackgroundImage.sprite = cardPanelFront;
+            cardImage.sprite = cardSprite;
+        }
+
+        catch
+        {
+            Debug.LogError("APPROVE: FLIP BACK ERROR");  
+        }
     }
     private IEnumerator WaitAndFlip()
     {
         yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
 
         OnFlipped();
         isFlipping = false;
+
+        yield return new WaitForSeconds(2);
     }
 
     private IEnumerator WaitAndFlipBack()
     {
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForEndOfFrame();
+        //yield return new WaitForSeconds(0.5f);
 
         OnFlipBack();
         isFlipping = false;
+
+        yield return new WaitForSeconds(2);
     }
     public void FlipWrapper()
     {
@@ -94,6 +127,11 @@ public class ApproveCard : BaseCard
     {
         StartCoroutine(WaitAndFlipBack());
     }
+    protected override void Start()
+    {
+        base.Start();
+    }
+
 
     protected override void Update()
     {
@@ -108,6 +146,11 @@ public class ApproveCard : BaseCard
         {
             canvas = gameObject.transform.GetChild(0).GetChild(0);
             text = canvas.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        }
+
+        if (cardImage == null)
+        {
+            cardImage = canvas.transform.GetChild(0).GetComponent<Image>();
         }
 
 
@@ -147,7 +190,7 @@ public class ApproveCard : BaseCard
         {
             Destroy(final_card); // Destroy the card
         }
-        Debug.Log("CARD CLICKED");
+        //Debug.Log("CARD CLICKED");
         // Load the popup prefab
         GameObject resultPrefab = Resources.Load<GameObject>("Prefabs/ResultCard");
         if (resultPrefab == null)
@@ -171,5 +214,10 @@ public class ApproveCard : BaseCard
         {
             Debug.LogError("ResultCard which is ApproveCard component not found on the popup prefab!");
         }
+    }
+
+    protected override void LoadCardPanelBackground(ref Sprite cardFront, ref Sprite cardBack)
+    {
+        base.LoadCardPanelBackground(ref cardFront, ref cardBack);
     }
 }

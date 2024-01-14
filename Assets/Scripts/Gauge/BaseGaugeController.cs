@@ -111,7 +111,9 @@ public class BaseGaugeController : MonoBehaviour
         }
     }
 
-    protected bool CheckAllZeroPoint()
+
+    //Check whether any of the percentages is on zero
+    public bool CheckAllZeroPoint()
     {
         if(CheckZeroPoint(royalPercentage) || 
            CheckZeroPoint(popularityPercentage) || 

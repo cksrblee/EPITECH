@@ -23,12 +23,16 @@ public class GameManager : MonoBehaviour
     public static int resultPanelWaitTime = 4;
     public static int kingDeadUIPanelWaitTime = 5;
     public static int scenarioIndex = 0;
+    public static float waitSecondsOfTestamentResultPanel = 6f;
 
     public static bool isGaugeValueChanged = false;
     public static int kingIndex = 1;
 
-    public bool TESTKingDeadTest = false;
+    public static float timerDuration = 15f;
 
+    public bool TESTKingDeadTest = false;
+    public bool TESTEnding = false;
+    public static int endingScenarioIndex = 28;
     public static int Royal
     {
         get => royal;
@@ -83,10 +87,17 @@ public class GameManager : MonoBehaviour
         GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
 
         ThisWorldEventController.OnGameOver.AddListener(new UnityAction(CallEndingScene));
+        ThisWorldEventController.OnTestament1Selected.AddListener(new UnityAction(OnTestament1));
+        ThisWorldEventController.OnTestament2Selected.AddListener(new UnityAction(OnTestament2));
 
         if(TESTKingDeadTest)
         {
             scenarioIndex = 13;
+        }
+
+        if(TESTEnding)
+        {
+            scenarioIndex = 27;
         }
 
     }
@@ -99,6 +110,15 @@ public class GameManager : MonoBehaviour
 
             //Call Gauge Controller
             GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+        }
+
+        if (scenarioIndex >= endingScenarioIndex )
+        {
+            if(GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().CheckAllZeroPoint())
+            {
+                ThisWorldEventController.OnGameOver?.Invoke();
+            }
+            else SceneManager.LoadScene("EndingSuccess");
         }
     }
 
@@ -114,7 +134,7 @@ public class GameManager : MonoBehaviour
 
     public static void CallEndingScene()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Ending");
     }
 
 
@@ -126,4 +146,20 @@ public class GameManager : MonoBehaviour
         //�г�Ƽ �� ���� ����   
         GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
     }
+
+    public void OnTestament1()
+    {
+        //Testament1: add time
+        timerDuration += 5;
+    }
+
+    public void OnTestament2()
+    {
+        //Testament2: set default gauge
+        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages(50f, 50f, 60f);
+
+
+    }
+
+    
 }

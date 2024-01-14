@@ -9,7 +9,7 @@ public class TimerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TikRotationAnim());
+        //StartCoroutine(TikRotationAnim());
     }
 
 
@@ -24,7 +24,7 @@ public class TimerController : MonoBehaviour
             ClockTik.transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * 1.0f);
             yield return null;
             //Debug.Log(time);
-            if (time > 15)
+            if (time > GameManager.timerDuration)
             {
                 break;
             }
