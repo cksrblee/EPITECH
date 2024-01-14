@@ -8,7 +8,7 @@ public class IntroController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadNextScene());   
+        //StartCoroutine(LoadNextScene());   
     }
 
     // Update is called once per frame
@@ -21,5 +21,11 @@ public class IntroController : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void OnStartButtonClick()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }

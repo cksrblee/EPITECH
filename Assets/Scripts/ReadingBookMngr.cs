@@ -25,7 +25,9 @@ public class ReadingBookMngr : MonoBehaviour
     void Start()
     { 
         book = GameObject.Find("Book").GetComponent<EndlessBook>();
-        
+
+        StartCoroutine(CameraMoving(2.1f));
+
     }
 
     // Update is called once per frame
@@ -54,13 +56,16 @@ public class ReadingBookMngr : MonoBehaviour
 
     public void OnStartBtnClicked()
     {
-        //카메라 호출
+        //?????? ????
         StartCoroutine(CameraMoving(2.1f));
     }
 
 
     IEnumerator CameraMoving(float seconds)
     {
+
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("sdslnklw");
         zoomCamera.SetActive(true);
 
         yield return new WaitForEndOfFrame();
