@@ -6,7 +6,7 @@ public class TimerUI : MonoBehaviour
 {
     // hand = rotating obj
     public Transform hand;
-    private float timerDuration = 10f; // Timer goes for 10 seconds
+    private float timerDuration = 15f; // Timer goes for 10 seconds
     private float timer; // Current Timer
 
     void Start()

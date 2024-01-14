@@ -94,7 +94,7 @@ public class UIController : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
             //Debug.Log(time);
-            if(time > 10)
+            if(time > 15)
             {
                 DestroyPopUpPanels();
 
