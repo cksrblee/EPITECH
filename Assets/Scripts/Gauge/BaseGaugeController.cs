@@ -6,10 +6,20 @@ using UnityEngine.UI;
 
 public class BaseGaugeController : MonoBehaviour
 {
-    // For the Full Image;
+    // For the Full Image
     public Image royalFillImage;
     public Image popularityFillImage;
     public Image financeFillImage;
+
+    // For the yellow Image
+    public Image royalYellowImage;
+    public Image popularityYellowImage;
+    public Image financeYellowImage;
+
+    // For the red Image
+    public Image royalRedImage;
+    public Image popularityRedImage;
+    public Image financeRedImage;
 
     // Percentage value
     public float royalPercentage = GameManager.Royal;
@@ -26,7 +36,8 @@ public class BaseGaugeController : MonoBehaviour
 
     bool isPointZero = false;
 
-    private void UpdateGauge(ref float gauge, float percentage, Image fillImage)
+    private void UpdateGauge(ref float gauge, float percentage,
+                             Image normalImage, Image yellowImage, Image redImage)
     {
         float targetGauge = percentage / 100f;
         if (Mathf.Abs(targetGauge - gauge) < epsilon)
@@ -37,7 +48,15 @@ public class BaseGaugeController : MonoBehaviour
         {
             gauge = Mathf.Lerp(gauge, targetGauge, Time.deltaTime * 3);
         }
-        fillImage.fillAmount = gauge;
+
+        normalImage.fillAmount = gauge;
+        yellowImage.fillAmount = gauge;
+        redImage.fillAmount = gauge;
+
+        // Control visibility of images based on thresholds
+        normalImage.enabled = percentage > 30;
+        yellowImage.enabled = percentage <= 30 && percentage > 10;
+        redImage.enabled = percentage <= 10;
     }
 
     private void Update()
@@ -50,9 +69,9 @@ public class BaseGaugeController : MonoBehaviour
             //GameManager.CallEndingScene();
         }
 
-        UpdateGauge(ref royalGauge, royalPercentage, royalFillImage);
-        UpdateGauge(ref popularityGauge, popularityPercentage, popularityFillImage);
-        UpdateGauge(ref financeGauge, financePercentage, financeFillImage);
+        UpdateGauge(ref royalGauge, royalPercentage, royalFillImage, royalYellowImage, royalRedImage);
+        UpdateGauge(ref popularityGauge, popularityPercentage, popularityFillImage, popularityYellowImage, popularityRedImage);
+        UpdateGauge(ref financeGauge, financePercentage, financeFillImage, financeYellowImage, financeRedImage);
     }
 
     public void SetGauge(string gaugeType, float value)
