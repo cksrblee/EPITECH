@@ -20501,7 +20501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751655233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46095,8 +46095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  TESTKingDeadTest: 1
-  TESTEnding: 0
+  TESTKingDeadTest: 0
+  TESTEnding: 1
 --- !u!4 &1745150938
 Transform:
   m_ObjectHideFlags: 0
