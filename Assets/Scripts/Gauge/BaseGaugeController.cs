@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class BaseGaugeController : MonoBehaviour
     public Image royalRedImage;
     public Image popularityRedImage;
     public Image financeRedImage;
+
+    public GameObject[] gauges;
 
     // Percentage value
     public float royalPercentage = GameManager.Royal;
@@ -69,11 +72,20 @@ public class BaseGaugeController : MonoBehaviour
             //GameManager.CallEndingScene();
         }
 
+        royalPercentage = GameManager.Royal;
+        popularityPercentage = GameManager.Popularity;
+        financePercentage = GameManager.Finance;
+
+        print(royalPercentage);
+        print(popularityPercentage);
+        print(financePercentage);
+
         UpdateGauge(ref royalGauge, royalPercentage, royalFillImage, royalYellowImage, royalRedImage);
         UpdateGauge(ref popularityGauge, popularityPercentage, popularityFillImage, popularityYellowImage, popularityRedImage);
         UpdateGauge(ref financeGauge, financePercentage, financeFillImage, financeYellowImage, financeRedImage);
     }
 
+    
     public void SetGauge(string gaugeType, float value)
     {
         switch (gaugeType)
@@ -143,6 +155,43 @@ public class BaseGaugeController : MonoBehaviour
         else 
         { 
             return false; 
+        }
+    }
+
+    public void MakeAllImageInvisible()
+    {
+        try
+        {
+            foreach(var i in gauges)
+            {
+                i.SetActive(false);
+            }
+
+        }
+
+        catch (Exception e)
+        {
+            print(e.ToString());
+        }
+}
+
+
+    public void MakeAllImageVisible()
+    {
+        try
+        {
+            foreach (var i in gauges)
+            {
+                i.SetActive(true);
+            }
+
+            //이미지 fillamount 업데이트 하는 함수 설정해야할 듯
+
+        }
+
+        catch (Exception e)
+        {
+            print(e.ToString());
         }
     }
 }

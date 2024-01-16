@@ -136,7 +136,14 @@ public class ResultCard : MonoBehaviour
 
         else
         {
-            ThisWorldEventController.OnKingDied?.Invoke();
+            try
+            {
+                ThisWorldEventController.OnKingDied?.Invoke();
+            }
+            catch (Exception e)
+            {
+                print(e.ToString());
+            }
         }
     }
 }

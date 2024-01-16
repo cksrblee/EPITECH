@@ -2184,7 +2184,7 @@ GameObject:
   - component: {fileID: 414777127}
   - component: {fileID: 414777128}
   m_Layer: 5
-  m_Name: CenterUpper
+  m_Name: LeftUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2296,6 +2296,10 @@ MonoBehaviour:
   royalRedImage: {fileID: 982652759}
   popularityRedImage: {fileID: 1599955085}
   financeRedImage: {fileID: 1400516142}
+  gauges:
+  - {fileID: 2047893406}
+  - {fileID: 1754638895}
+  - {fileID: 1149073353}
   royalPercentage: 50
   popularityPercentage: 50
   financePercentage: 50
@@ -3599,12 +3603,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 414777124}
+  - {fileID: 1551183484}
   - {fileID: 332873921}
   - {fileID: 1895873521}
   - {fileID: 751655233}
   - {fileID: 246963390405961859}
   - {fileID: 330210431}
-  - {fileID: 577946272}
   m_Father: {fileID: 561053055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4455,7 +4459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &751655233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6892,6 +6896,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535588388}
   m_CullTransparentMesh: 1
+--- !u!1001 &1551183483
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 665259419}
+    m_Modifications:
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090483286165945657, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_Name
+      value: ProgressBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090483286165945657, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+--- !u!224 &1551183484 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1871955885995385639, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+  m_PrefabInstance: {fileID: 1551183483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1553167531
 GameObject:
   m_ObjectHideFlags: 0
@@ -7774,8 +7884,8 @@ MonoBehaviour:
   controller: {fileID: 0}
   TESTKingDeadTest: 1
   TESTEnding: 0
-  TESTProgress: 1
-  TESTStage: 15
+  TESTProgress: 0
+  TESTStage: 14
 --- !u!4 &1745150938
 Transform:
   m_ObjectHideFlags: 0
@@ -7807,6 +7917,8 @@ MonoBehaviour:
   CardUIPanel: {fileID: 947565081791213267, guid: cff23a4985eb13a4497f85917ef1be84, type: 3}
   ClockUI: {fileID: 1837394130089909247, guid: 7ccac507015c6ac44819491ccd25a4c4, type: 3}
   UIParent: {fileID: 665259418}
+  leftUpperUI: {fileID: 414777123}
+  progressBar: {fileID: 1875161566}
   SceneNumBG: {fileID: 751655232}
   SceneNumText: {fileID: 639450150}
   KingDeadUI: {fileID: 688903676515380156}
@@ -7966,6 +8078,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780511159}
   m_CullTransparentMesh: 1
+--- !u!1 &1875161566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9090483286165945657, guid: 44d160a9a3b53c6459d2d185a0a3c610, type: 3}
+  m_PrefabInstance: {fileID: 1551183483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1894791133
 GameObject:
   m_ObjectHideFlags: 0

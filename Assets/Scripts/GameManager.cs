@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         ThisWorldEventController.OnChooseFailed.AddListener(new UnityEngine.Events.UnityAction(OutOfTimePanelty));
 
         //Register Callbacks
-        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+        GameObject.Find("LeftUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
 
         ThisWorldEventController.OnGameOver.AddListener(new UnityAction(CallEndingScene));
         ThisWorldEventController.OnTestament1Selected.AddListener(new UnityAction(OnTestament1));
@@ -120,12 +120,12 @@ public class GameManager : MonoBehaviour
             isGaugeValueChanged = false;
 
             //Call Gauge Controller
-            GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+            GameObject.Find("LeftUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
         }
 
         if (scenarioIndex >= endingScenarioIndex )
         {
-            if(GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().CheckAllZeroPoint())
+            if(GameObject.Find("LeftUpper").GetComponent<BaseGaugeController>().CheckAllZeroPoint())
             {
                 ThisWorldEventController.OnGameOver?.Invoke();
             }
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
         Popularity -= 10;
         Finance -= 10;
         //�г�Ƽ �� ���� ����   
-        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+        GameObject.Find("LeftUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
     }
 
     public void OnTestament1()
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
     {
         Popularity = 60;
         //Testament2: set default gauge
-        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
+        GameObject.Find("LeftUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
 
 
     }

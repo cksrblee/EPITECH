@@ -19,6 +19,11 @@ public class UIController : MonoBehaviour
     private GameObject cardUIPanelObj;
     private GameObject clockUIPanelObj;
 
+    [SerializeField]
+    public GameObject leftUpperUI;
+    [SerializeField]
+    private GameObject progressBar;
+
     bool isKingDead = true;
     bool isTestamentSelected = false;
     int scenarioIndex
@@ -72,6 +77,12 @@ public class UIController : MonoBehaviour
 
         var onKingDead = new UnityAction(OnKingDead);
         ThisWorldEventController.OnKingDied.AddListener(onKingDead);
+
+        var deactivateGameUI = new UnityAction(DeactivateGameUI);
+        ThisWorldEventController.OnKingDied.AddListener(deactivateGameUI);
+
+        var activateGameUI = new UnityAction(ActivateGameUI);
+        ThisWorldEventController.OnRestartGame.AddListener(activateGameUI);
     }
 
     private void InstantiateSelectPanel()
@@ -187,5 +198,19 @@ public class UIController : MonoBehaviour
 
         GameObject.Find(toBeDestoried).SetActive(false);
         
+    }
+
+    public void DeactivateGameUI()
+    {
+        //leftUpperUI.SetActive(false);
+        leftUpperUI.GetComponent<BaseGaugeController>().MakeAllImageInvisible();
+        progressBar.SetActive(false);
+    }
+
+    public void ActivateGameUI()
+    {
+        //leftUpperUI.SetActive(true);
+        leftUpperUI.GetComponent<BaseGaugeController>().MakeAllImageVisible();
+        progressBar.SetActive(true);
     }
 }
