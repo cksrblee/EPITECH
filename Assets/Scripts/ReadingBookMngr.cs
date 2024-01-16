@@ -82,4 +82,11 @@ public class ReadingBookMngr : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
+
+    public void LoadNextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        print("THIS IS INDEX : " + currentSceneIndex);
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
 }

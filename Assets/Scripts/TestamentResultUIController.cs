@@ -7,6 +7,7 @@ public class TestamentResultUIController : MonoBehaviour
 {
 
     public TextMeshProUGUI text;
+    public TextMeshProUGUI alertText;
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,5 +33,14 @@ public class TestamentResultUIController : MonoBehaviour
         ThisWorldEventController.OnRestartGame?.Invoke();
 
         Destroy(gameObject);
+    }
+
+    public void OnEnable()
+    {
+        GameObject.Find("GameManager").GetComponent<UIController>().WaitAndDestoryWrapper(alertText, "TestmentPanel");
+    }
+    private void OnDisable()
+    {
+        ThisWorldEventController.OnRestartGame.Invoke();
     }
 }

@@ -166,8 +166,9 @@ public class GameManager : MonoBehaviour
 
     public void OnTestament2()
     {
+        Popularity = 60;
         //Testament2: set default gauge
-        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages(50f, 50f, 60f);
+        GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
 
 
     }

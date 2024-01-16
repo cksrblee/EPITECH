@@ -7,6 +7,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class UIController : MonoBehaviour
 {
@@ -171,4 +172,20 @@ public class UIController : MonoBehaviour
         ThisWorldEventController.OnTestament2Selected.Invoke();
     }
 
+    public void WaitAndDestoryWrapper(TextMeshProUGUI text, string toBeDestroied)
+    {
+        StartCoroutine(WaitAndDestroy(text, toBeDestroied));
+    }
+
+    private IEnumerator WaitAndDestroy(TextMeshProUGUI text, string toBeDestoried)
+    {
+        for (int i = 5; i > 0; i-- )
+        {
+            text.text = i.ToString() + "초 후에 사라집니다.";
+            yield return new WaitForSeconds(1);
+        }
+
+        GameObject.Find(toBeDestoried).SetActive(false);
+        
+    }
 }
