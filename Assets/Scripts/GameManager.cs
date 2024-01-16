@@ -32,7 +32,13 @@ public class GameManager : MonoBehaviour
 
     public bool TESTKingDeadTest = false;
     public bool TESTEnding = false;
+
     public static int endingScenarioIndex = 28;
+
+    // Test Progress Bar
+    public bool TESTProgress = false;
+    public int TESTStage = 0;
+
     public static int Royal
     {
         get => royal;
@@ -98,6 +104,11 @@ public class GameManager : MonoBehaviour
         if(TESTEnding)
         {
             scenarioIndex = 27;
+        }
+
+        if (TESTProgress)
+        {
+            scenarioIndex = TESTStage;
         }
 
     }
