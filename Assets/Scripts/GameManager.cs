@@ -70,8 +70,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static GameManager Instance { get; private set; }
+
     private void Awake()
     {
+        // For going to next scene
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         controller = gameObject.GetComponent<UIController>();
 
         //load json String Assets/Data/scenario.json
@@ -157,9 +170,12 @@ public class GameManager : MonoBehaviour
     {
         //Testament2: set default gauge
         GameObject.Find("CenterUpper").GetComponent<BaseGaugeController>().ChangePercentages(50f, 50f, 60f);
-
-
     }
 
-    
+    public void LoadNextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        print("THIS IS INDEX : " + currentSceneIndex);
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
 }
