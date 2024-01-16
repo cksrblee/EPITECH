@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 101195366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.261, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -547,19 +547,19 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 1
   m_Waypoints:
-  - position: {x: 2.86, y: 0, z: 2.91}
+  - position: {x: 4.9885073, y: 0, z: 2.0965393}
     roll: 0
-  - position: {x: 3.75, y: 0, z: -3}
+  - position: {x: 2.363767, y: 0, z: 0.18989463}
     roll: 0
-  - position: {x: -0.54, y: 0, z: -2.75}
+  - position: {x: -3.2399888, y: 0, z: 1.2115754}
     roll: 0
-  - position: {x: -2.3, y: 0, z: 3}
+  - position: {x: -5.314635, y: 0, z: 3.589909}
     roll: 0
-  - position: {x: -0.6, y: 0, z: 13.91}
+  - position: {x: -1.8513578, y: 0, z: 5.6064596}
     roll: 0
-  - position: {x: 2.34, y: 0, z: 14.48}
+  - position: {x: 1.3658969, y: 0, z: 7.2260647}
     roll: 0
-  - position: {x: 3.08, y: 0, z: 7.73}
+  - position: {x: 6.9633255, y: 0, z: 6.9517903}
     roll: 0
 --- !u!4 &301431259
 Transform:
@@ -569,13 +569,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301431257}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.73, y: 0, z: 10.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &311301988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,10 +1082,10 @@ MonoBehaviour:
     e01: 0.06671225
     e02: 0.089958586
     e03: -4.297125
-    e10: 0.07773191
-    e11: 0.77891344
-    e12: 0.009419646
-    e13: -1.5552318
+    e10: 0.077731915
+    e11: 0.7789135
+    e12: 0.009419647
+    e13: -1.5552319
     e20: -0.07881512
     e21: 0.015200042
     e22: -0.6065059
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_Path: {fileID: 301431258}
   m_UpdateMethod: 0
   m_PositionUnits: 1
-  m_Speed: 1
+  m_Speed: 5.29
   m_Position: 0
 --- !u!4 &587787688
 Transform:
@@ -1217,13 +1217,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587787686}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9957462, z: 0, w: 0.092138715}
-  m_LocalPosition: {x: 2.86, y: 0, z: -2.09}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.8848683, z: 0, w: 0.46584138}
+  m_LocalPosition: {x: -1.36654, y: 0, z: 15.528507}
+  m_LocalScale: {x: 0.88738, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 121.76, z: 0}
 --- !u!1 &775129239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,14 +1559,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821329561}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9957462, z: 0, w: 0.092138715}
-  m_LocalPosition: {x: 2.86, y: 0, z: -2.09}
+  m_LocalRotation: {x: 0, y: 0.92392004, z: 0, w: 0.38258573}
+  m_LocalPosition: {x: -1.36654, y: 0, z: 15.528507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248709099}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 7.563, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 134.27, z: 0}
 --- !u!114 &821329565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,8 +1721,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 27
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4126,8 +4126,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248709094}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.06, z: 4.48}
+  m_LocalRotation: {x: -0, y: 0.06745716, z: -0, w: 0.9977222}
+  m_LocalPosition: {x: -0.75, y: -1.46, z: 5.32}
   m_LocalScale: {x: 6.8837276, y: 4.368432, z: 1.4978851}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4138,7 +4138,7 @@ Transform:
   - {fileID: 965725755}
   - {fileID: 1428620078}
   m_Father: {fileID: 821329564}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 7.736, z: 0}
 --- !u!1 &1330224680
 GameObject:
   m_ObjectHideFlags: 0
@@ -5717,7 +5717,7 @@ Transform:
   m_GameObject: {fileID: 1764639725}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.92392004, z: -0, w: 0.38258576}
-  m_LocalPosition: {x: 2.86, y: 0, z: 7.91}
+  m_LocalPosition: {x: -1.1055399, y: 0, z: 25.528507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6426,7 +6426,6 @@ GameObject:
   - component: {fileID: 1926954245}
   - component: {fileID: 1926954248}
   - component: {fileID: 1926954249}
-  - component: {fileID: 1926954250}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -6461,6 +6460,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1926954249
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926954244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e42c7d0405cc48a7b83f63ea53bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Path: {fileID: 301431258}
+  m_PathPosition: 0
+  m_PositionUnits: 0
+  m_PathOffset: {x: 0, y: 0, z: 0}
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 1
+  m_CameraUp: 0
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+  m_AutoDolly:
+    m_Enabled: 1
+    m_PositionOffset: 0
+    m_SearchRadius: 2
+    m_SearchResolution: 5
 --- !u!1 &1995053392
 GameObject:
   m_ObjectHideFlags: 0
