@@ -78,6 +78,23 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Royal = 50;
+        Popularity = 50;
+        Finance = 50;
+        /*
+        if (GameObject.FindGameObjectWithTag("Stage") == null)
+        {
+            var stage = new GameObject();
+            DontDestroyOnLoad(stage);
+            stage.name = scenarioIndex.ToString();
+            stage.tag = "Stage";
+
+        }
+        else
+        {
+            scenarioIndex = int.Parse(GameObject.FindGameObjectWithTag("Stage").name);
+        }
+        */
         controller = gameObject.GetComponent<UIController>();
 
         //load json String Assets/Data/scenario.json
@@ -131,6 +148,11 @@ public class GameManager : MonoBehaviour
             }
             else SceneManager.LoadScene("EndingSuccess");
         }
+        /*
+        if (GameObject.FindGameObjectWithTag("Stage") != null)
+        {
+            GameObject.FindGameObjectWithTag("Stage").name = scenarioIndex.ToString();
+        }*/
     }
 
     public UIController GetUIController()

@@ -5,7 +5,7 @@ namespace echo17.EndlessBook.EndilngController
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-
+    using UnityEngine.SceneManagement;
 
     public class EndilngController : MonoBehaviour
     {
@@ -62,6 +62,13 @@ namespace echo17.EndlessBook.EndilngController
         {
             //throw new NotImplementedException();
         }
+
+        public void onrestartclicked()
+        {
+            SceneManager.LoadScene("Main");
+
+        }
+
 
     }
 }
