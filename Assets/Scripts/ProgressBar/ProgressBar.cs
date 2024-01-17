@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 /*
  0 ~ 13 -> 1st King
- 14~ 27 -> 2nd King
+ 14 -> Uwon
+ 27 -> 2nd King
  */
 
 public class ProgressBar : MonoBehaviour
@@ -53,7 +54,7 @@ public class ProgressBar : MonoBehaviour
         {
             progress = (float)currentScenarioIndex / (maxScenarios - 1);
         }
-        else if(currentScenarioIndex == 14)
+        else if(currentScenarioIndex == 15)
         {
             progress = minProgress;
             fullProgressBar.fillAmount = minProgress;
