@@ -76,10 +76,6 @@ public class BaseGaugeController : MonoBehaviour
         popularityPercentage = GameManager.Popularity;
         financePercentage = GameManager.Finance;
 
-        print(royalPercentage);
-        print(popularityPercentage);
-        print(financePercentage);
-
         UpdateGauge(ref royalGauge, royalPercentage, royalFillImage, royalYellowImage, royalRedImage);
         UpdateGauge(ref popularityGauge, popularityPercentage, popularityFillImage, popularityYellowImage, popularityRedImage);
         UpdateGauge(ref financeGauge, financePercentage, financeFillImage, financeYellowImage, financeRedImage);

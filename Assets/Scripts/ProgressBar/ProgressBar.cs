@@ -10,11 +10,17 @@ public class ProgressBar : MonoBehaviour
     private float targetProgress; // Target progress value
     private float fillSpeed = 2.0f; // Speed of the fill animation
 
+    // FOR King's Images
+    public Sprite[] KingImages;
+    private Image progressKingImage;
+    public Image KingImageOBJ;
+
     void Start()
     {
         // Get the GameManager instance
         gameManager = FindObjectOfType<GameManager>();
         targetProgress = fullProgressBar.fillAmount;
+        progressKingImage = KingImageOBJ.GetComponent<Image>();
     }
 
     void Update()
@@ -38,6 +44,20 @@ public class ProgressBar : MonoBehaviour
         // Scale and shift the progress range
         float progress = ((float)currentScenarioIndex - 1) / (maxScenarios - 1);
         targetProgress = minProgress + progress * (maxProgress - minProgress);
+
+        // Update the image based on progress level
+        UpdateProgressImage(targetProgress);
+    }
+
+    private void UpdateProgressImage(float currentProgress)
+    {
+        if (currentProgress >= 0.8f)
+            progressKingImage.sprite = KingImages[3]; // 80%
+        else if (currentProgress >= 0.6f)
+            progressKingImage.sprite = KingImages[2]; // 60%
+        else if (currentProgress >= 0.4f)
+            progressKingImage.sprite = KingImages[1]; // 40%
+        else if (currentProgress >= 0.2f)
+            progressKingImage.sprite = KingImages[0]; // 20%
     }
 }
-

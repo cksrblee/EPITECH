@@ -18,6 +18,8 @@ public class BaseCutScene : MonoBehaviour, IPointerClickHandler
 
     protected bool finished_dialog = false;
 
+    public AudioSource typingSoundEffect; // Assign this in the inspector
+
     public Image fadeImage;
     protected bool isClicked = false;
     // Start is called before the first frame update
@@ -66,16 +68,15 @@ public class BaseCutScene : MonoBehaviour, IPointerClickHandler
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.05f); // Wait time between characters
-
-            if(isClicked == true)
+            if (isClicked == true)
             {
                 dialogueText.text = sentence;
                 isClicked = false;
                 break;
             }
         }
-
     }
+
     // @Brief : It shows the dialogue panal and the text 
     public void ShowDialogue(string text)
     {
@@ -87,14 +88,18 @@ public class BaseCutScene : MonoBehaviour, IPointerClickHandler
         dialogueText.color = new Color(dialogueText.color.r, dialogueText.color.g, dialogueText.color.b, 1);
 
         // Typing effect starts
+        //typingSoundEffect.Play(); // Play the typing sound effect
         StartCoroutine(TypeSentence(text));
+
 
         // Deactivate after the effect
         DOVirtual.DelayedCall(text.Length * 0.05f + 0.8f, () => {
             dialogueText.DOFade(0, 0.5f).OnComplete(() => {
+                //typingSoundEffect.Stop(); // Stop the typing sound effect if we're finishing
                 dialogueBackground.SetActive(false);
                 dialogueText.gameObject.SetActive(false);
                 finished_dialog = true;
+
             });
         });
 
