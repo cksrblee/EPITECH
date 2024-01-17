@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public static int resultPanelWaitTime = 4;
     public static int kingDeadUIPanelWaitTime = 5;
     public static int scenarioIndex = 0;
-    public static float waitSecondsOfTestamentResultPanel = 6f;
+    public static float waitSecondsOfTestamentResultPanel = 8f;
 
     public static bool isGaugeValueChanged = false;
     public static int kingIndex = 1;

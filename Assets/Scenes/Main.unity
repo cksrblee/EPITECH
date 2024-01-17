@@ -8019,7 +8019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1745150939}
-  TESTKingDeadTest: 0
+  TESTKingDeadTest: 1
   TESTEnding: 0
   TESTProgress: 0
   TESTStage: 0

@@ -64,7 +64,7 @@ public class CardController : MonoBehaviour
     IEnumerator DelayedMakeCards()
     {
         // Wait for 5 seconds
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(4f);
 
         // Play the sound effect
         audio_source.PlayOneShot(card_sound);

@@ -239,7 +239,7 @@ public class UIController : MonoBehaviour
 
     private IEnumerator WaitAndDestroy(TextMeshProUGUI text, string toBeDestoried)
     {
-        for (int i = 5; i > 0; i-- )
+        for (int i = (int)(GameManager.waitSecondsOfTestamentResultPanel); i > 0; i-- )
         {
             text.text = "Closed in " + i.ToString();
             yield return new WaitForSeconds(1);
