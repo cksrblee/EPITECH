@@ -78,6 +78,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        scenarioIndex = 0;
+        if (timerDuration>10)
+            timerDuration = 10;
+
         Royal = 50;
         Popularity = 50;
         Finance = 50;
