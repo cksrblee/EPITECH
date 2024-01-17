@@ -21,7 +21,7 @@
             "effect": {
                 "agree": [
                         {"property" : "finance", "num" : 15},
-                        {"property" : "popularity", "num" : -20}
+                        {"property" : "popularity", "num" : -10}
                 ],
                 "disagree": [
                         {"property" : "popularity", "num" : 10}
@@ -48,7 +48,7 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "royal", "num" : -10},
+                        {"property" : "royal", "num" : -15},
                         {"property" : "popularity", "num" : -10}
                 ],
                 "disagree": [
@@ -106,9 +106,9 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "royal", "num" : 20},
+                        {"property" : "royal", "num" : 10},
                         {"property" : "popularity", "num" : -20},
-                        {"property" : "finance", "num" : -20}
+                        {"property" : "finance", "num" : -10}
                 ],
                 "disagree": [
                 ]
@@ -138,8 +138,8 @@
                         {"property" : "popularity", "num" : 10}
                 ],
                 "disagree": [
-                        {"property" : "royal", "num" : -10},
-                        {"property" : "popularity", "num" : -10}
+                        {"property" : "royal", "num" : -20},
+                        {"property" : "popularity", "num" : -20}
                 ]
             }
         },    
@@ -168,7 +168,8 @@
                         {"property" : "finance", "num" : -10}
                 ],
                 "disagree": [
-                        {"property" : "popularity", "num" : -10}
+                        {"property" : "royal", "num" : -20},
+			{"property" : "popularity", "num" : -10}
                 ]
             }
         },
@@ -193,7 +194,6 @@
             "effect": {
                 "agree": [
                         {"property" : "royal", "num" : 10},
-                        {"property" : "popularity", "num" : 10},
                         {"property" : "finance", "num" : -10}
                 ],
                 "disagree": [
@@ -221,10 +221,11 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "popularity", "num" : 20},
+                        {"property" : "popularity", "num" : 10},
                         {"property" : "finance", "num" : -10}
                 ],
                 "disagree": [
+                        {"property" : "royal", "num" : -20},
                         {"property" : "popularity", "num" : -20}
                 ]
             }
@@ -249,14 +250,14 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "royal", "num" : 20},
-                        {"property" : "popularity", "num" : 20},
-                        {"property" : "finance", "num" : 20}
+                        {"property" : "royal", "num" : 10},
+                        {"property" : "popularity", "num" : 10},
+                        {"property" : "finance", "num" : 10}
                 ],
                 "disagree": [
-                        {"property" : "royal", "num" : -20},
-                        {"property" : "popularity", "num" : -20},
-                        {"property" : "finance", "num" : -20}
+                        {"property" : "royal", "num" : -10},
+                        {"property" : "popularity", "num" : -10},
+                        {"property" : "finance", "num" : -10}
                 ]
             }
         },
@@ -309,7 +310,7 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "royal", "num" : 20}
+                        {"property" : "royal", "num" : 10}
                 ],
                 "disagree": [
                         {"property" : "finance", "num" : -10},
@@ -341,7 +342,7 @@
                         {"property" : "finance", "num" : -10}
                 ],
                 "disagree": [
-                        {"property" : "royal", "num" : -10},
+                        {"property" : "royal", "num" : -20},
                         {"property" : "popularity", "num" : -10}
                 ]
             }
@@ -366,7 +367,7 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "royal", "num" : -10}
+                        {"property" : "royal", "num" : -20}
                 ], 
                 "disagree": [
                         {"property" : "royal", "num" : 10}
@@ -397,7 +398,7 @@
                         {"property" : "popularity", "num" : 10}
                 ],
                 "disagree": [
-                        {"property" : "popularity", "num" : -10}
+                        {"property" : "popularity", "num" : -20}
                 ]
             }
         },
@@ -480,7 +481,7 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "royal", "num" : 20},
+                        {"property" : "royal", "num" : 10},
                         {"property" : "finance", "num" : -20}
                 ], 
                 "disagree": [
@@ -508,7 +509,7 @@
             },
             "effect": {
                 "agree": [
-                        {"property" : "popularity", "num" : 20}
+                        {"property" : "popularity", "num" : 10}
                 ],
                 "disagree": [
                         {"property" : "finance", "num" : -10},
@@ -536,6 +537,7 @@
             },
             "effect": {
                 "agree": [
+                        {"property" : "royal", "num" : -10},
                         {"property" : "popularity", "num" : -10}
                 ],
                 "disagree": [
@@ -568,7 +570,9 @@
                         {"property" : "finance", "num" : -10}
                 ],
                 "disagree": [
-                        {"property" : "popularity", "num" : -20}
+                        {"property" : "royal", "num" : -20},
+                        {"property" : "popularity", "num" : -10},
+                        {"property" : "finance", "num" : -10}
                 ]
             }
         },

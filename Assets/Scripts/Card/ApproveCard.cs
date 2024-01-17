@@ -50,7 +50,7 @@ public class ApproveCard : BaseCard
         // Load and set the image
         string cardSpritePath = "Illustrate/David_1st/" + $"{king_id}-{event_id}(agree)"; // Make sure to use the correct naming scheme here
         cardSprite = Resources.Load<Sprite>(cardSpritePath);
-        string characterSpritePath = "Illustrate/Characters/1";
+        string characterSpritePath = "Illustrate/Characters/1stKnight";
         try
         {
             characterImg = Resources.Load<Sprite>(characterSpritePath);

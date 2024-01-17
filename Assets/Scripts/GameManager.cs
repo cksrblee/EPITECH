@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,7 +49,6 @@ public class GameManager : MonoBehaviour
             royal = value;
             isGaugeValueChanged = true;
             ThisWorldEventController.OnRoyalVariableChanged.Invoke();
-
         }
     }
 
@@ -148,7 +148,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Ending");
     }
 
-
     public void OutOfTimePanelty()
     {
         Royal -= 10;
@@ -162,16 +161,20 @@ public class GameManager : MonoBehaviour
     {
         //Testament1: add time
         timerDuration += 5;
+
+        Royal = 50;
+        Popularity = 50;
+        Finance = 50;
+        //Testament2: set default gauge
+        GameObject.Find("LeftUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
     }
 
     public void OnTestament2()
     {
+        Royal = 50;
         Popularity = 60;
+        Finance = 50;
         //Testament2: set default gauge
         GameObject.Find("LeftUpper").GetComponent<BaseGaugeController>().ChangePercentages((float)Royal, (float)Popularity, (float)Finance);
-
-
     }
-
-    
 }

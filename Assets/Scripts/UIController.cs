@@ -41,6 +41,15 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI SceneNumText;
     public GameObject KingDeadUI;
     public GameObject TestamentResultUI;
+    
+    // For Background Music
+    public AudioClip BGM1; 
+    public AudioClip BGM2; 
+    public AudioClip KingDeadMusic; 
+    public AudioClip UwonMusic; 
+    private AudioSource audioSource;
+    private AudioSource kingDeadSource;
+
 
     enum UIStatus
     {
@@ -49,6 +58,22 @@ public class UIController : MonoBehaviour
     }
     private void Awake()
     {
+        // Set Up BGM
+        audioSource = GetComponent<AudioSource>();
+        kingDeadSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        if (kingDeadSource == null)
+        {
+            kingDeadSource = gameObject.AddComponent<AudioSource>();
+            kingDeadSource.clip = KingDeadMusic;
+        }
+
+        PlayBackgroundMusic();
+
         MainUI.SetActive(false);
 
         InstantiateSelectPanel();  //첫 시작을 위한 코드
@@ -84,6 +109,24 @@ public class UIController : MonoBehaviour
         var activateGameUI = new UnityAction(ActivateGameUI);
         ThisWorldEventController.OnRestartGame.AddListener(activateGameUI);
     }
+
+    // For BGM
+    private void PlayBackgroundMusic()
+    {
+        if (scenarioIndex < 14)
+        {
+            audioSource.clip = BGM1;
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.clip = BGM2;
+            audioSource.Play();
+        }
+
+        print("Is King Dead? : " + isKingDead);
+    }
+
 
     private void InstantiateSelectPanel()
     {
@@ -143,9 +186,10 @@ public class UIController : MonoBehaviour
     public void OnKingDead()
     {
         print("KING DEAD!!!");
+        audioSource.Stop();
+        kingDeadSource.Play();
         isKingDead = true;
         //open kingDead UI
-
         KingDeadUI.SetActive(true);
     }
 
@@ -154,6 +198,9 @@ public class UIController : MonoBehaviour
     {
         isKingDead = false;
         KingDeadUI.SetActive(false);
+        // Here ZUKWE BGM
+        kingDeadSource.clip = UwonMusic;
+        kingDeadSource.Play();
     }
 
     public void UpdateSceneIndexText()
@@ -171,6 +218,7 @@ public class UIController : MonoBehaviour
     {
         TestamentResultUI.SetActive(true);
         isTestamentSelected = true;
+        kingDeadSource.Stop();
         FinishKingDeadUI();
         ThisWorldEventController.OnTestament1Selected.Invoke();
     }
@@ -179,6 +227,7 @@ public class UIController : MonoBehaviour
     {
         TestamentResultUI.SetActive(true);
         isTestamentSelected = true;
+        kingDeadSource.Stop();
         FinishKingDeadUI();
         ThisWorldEventController.OnTestament2Selected.Invoke();
     }
@@ -192,12 +241,11 @@ public class UIController : MonoBehaviour
     {
         for (int i = 5; i > 0; i-- )
         {
-            text.text = i.ToString() + "초 후에 사라집니다.";
+            text.text = "Closed in " + i.ToString();
             yield return new WaitForSeconds(1);
         }
 
         GameObject.Find(toBeDestoried).SetActive(false);
-        
     }
 
     public void DeactivateGameUI()
@@ -212,5 +260,7 @@ public class UIController : MonoBehaviour
         //leftUpperUI.SetActive(true);
         leftUpperUI.GetComponent<BaseGaugeController>().MakeAllImageVisible();
         progressBar.SetActive(true);
+        kingDeadSource.Stop();
+        PlayBackgroundMusic(); // Update BGM when UI is activated
     }
 }

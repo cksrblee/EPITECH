@@ -51,7 +51,7 @@ public class DisapproveCard : BaseCard
         cardSpritePath = "Illustrate/David_1st/" + $"{king_id}-{event_id}(disagree)"; // Make sure to use the correct naming scheme here
         cardSprite = Resources.Load<Sprite>(cardSpritePath);
 
-        characterSpritePath = "Illustrate/Characters/2";
+        characterSpritePath = "Illustrate/Characters/2ndKnight";
         characterImg = Resources.Load<Sprite>(characterSpritePath);
         if (cardSprite != null)
         {

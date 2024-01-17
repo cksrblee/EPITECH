@@ -8,7 +8,7 @@ public class ThisWorldEventController : MonoBehaviour
     public static UnityEvent OnUserChooseCards = new UnityEvent();
     public static UnityEvent OnResultFinished = new UnityEvent();
     public static UnityEvent OnResultPanelOpened = new UnityEvent();
-    public static UnityEvent OnKingDied = new UnityEvent(); // ¿ÕÀÌ Á×¾úÀ» °æ¿ì ½Ã³ª¸®¿À ÀÎµ¦½º 15, 30 ‹š ½ÇÇà
+    public static UnityEvent OnKingDied = new UnityEvent(); // ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ 15, 30 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public static UnityEvent OnRestartGame = new UnityEvent();
     public static UnityEvent OnGameOver = new UnityEvent();
     public static UnityEvent OnChooseFailed = new UnityEvent();

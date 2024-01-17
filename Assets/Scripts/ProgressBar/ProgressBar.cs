@@ -73,6 +73,7 @@ public class ProgressBar : MonoBehaviour
         UpdateProgressImage(targetProgress);
     }
 
+    // 0.93 is FULL / 0.21 is Empty / Midpoint is 0.57
     private void UpdateProgressImage(float progress)
     {
         int currentScenarioIndex = GameManager.scenarioIndex; // Get the current scenario index
@@ -83,9 +84,9 @@ public class ProgressBar : MonoBehaviour
             // First king's image progression
             if (progress >= 0.75f)
                 progressKingImage.sprite = KingImages[3];
-            else if (progress >= 0.5f)
+            else if (progress >= 0.57f)
                 progressKingImage.sprite = KingImages[2];
-            else if (progress >= 0.25f)
+            else if (progress >= 0.39f)
                 progressKingImage.sprite = KingImages[1];
             else
                 progressKingImage.sprite = KingImages[0];
@@ -95,9 +96,9 @@ public class ProgressBar : MonoBehaviour
             // Second king's image progression
             if (progress >= 0.75f)
                 progressKingImage.sprite = KingImages[7];
-            else if (progress >= 0.5f)
+            else if (progress >= 0.57f)
                 progressKingImage.sprite = KingImages[6];
-            else if (progress >= 0.25f)
+            else if (progress >= 0.39f)
                 progressKingImage.sprite = KingImages[5];
             else
                 progressKingImage.sprite = KingImages[4];
