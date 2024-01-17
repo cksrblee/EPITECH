@@ -23,6 +23,11 @@ public class CardController : MonoBehaviour
     //public Animator quizPanelAnimator; // Reference to the Animator component
     //private bool isPanelOpen = false;
 
+    // For Sound Effect
+    public AudioClip card_sound;
+    public AudioClip quizSound;
+    private AudioSource audio_source;
+
 
     public Scenarios scenarios;
 
@@ -34,6 +39,9 @@ public class CardController : MonoBehaviour
     {
         //Set Scenarios
         scenarios = GameObject.Find("GameManager").GetComponent<GameManager>().GetScenarios();
+
+        // Initialize the AudioSource
+        audio_source = GetComponent<AudioSource>();
 
         //Set First Card 
         curScenarioIndex = GameManager.scenarioIndex;
@@ -58,12 +66,18 @@ public class CardController : MonoBehaviour
         // Wait for 5 seconds
         yield return new WaitForSeconds(5.0f);
 
+        // Play the sound effect
+        audio_source.PlayOneShot(card_sound);
+
         // Call MakeCards method
         MakeCards(scenarios.scenarios[curScenarioIndex]);
     }
 
     IEnumerator DeactivatePanelAfterTime(float time)
     {
+        // Play the quiz sound effect
+        audio_source.PlayOneShot(quizSound);
+
         // Wait for the specified time
         QuestionText.text = scenarios.scenarios[curScenarioIndex].advise;
         yield return new WaitForSeconds(time);

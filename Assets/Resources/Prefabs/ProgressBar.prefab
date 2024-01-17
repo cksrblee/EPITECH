@@ -95,6 +95,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88acdbb4f74a7cb4997c7551e8d3c8a3, type: 3}
   - {fileID: 21300000, guid: ddf0060f0bdaee545ab6373ca79354c7, type: 3}
   - {fileID: 21300000, guid: 15886ac75de1f5a4f8262448fd87b238, type: 3}
+  - {fileID: 21300000, guid: 5c93acd5815752745ad3370702afaffc, type: 3}
+  - {fileID: 21300000, guid: 7f163a19e2a393b4a91b374c8a4e2eb3, type: 3}
+  - {fileID: 21300000, guid: 49de5bb7f7202274fadfd340dfc0c26a, type: 3}
+  - {fileID: 21300000, guid: 4ce8fd1bdd0a9424c9c15b03ff0893e4, type: 3}
   KingImageOBJ: {fileID: 5340771739152014039}
 --- !u!114 &122598938481797247
 MonoBehaviour:
@@ -307,14 +311,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1871955885995385639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -75, y: 80}
-  m_SizeDelta: {x: 115, y: 115}
+  m_AnchoredPosition: {x: -75, y: 85.8}
+  m_SizeDelta: {x: 145.0109, y: 143.4312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7561702213788249453
 CanvasRenderer:
