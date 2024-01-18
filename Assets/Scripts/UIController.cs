@@ -124,7 +124,7 @@ public class UIController : MonoBehaviour
             audioSource.Play();
         }
 
-        print("Is King Dead? : " + isKingDead);
+        //print("Is King Dead? : " + isKingDead);
     }
 
 
@@ -245,7 +245,12 @@ public class UIController : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
-        GameObject.Find(toBeDestoried).SetActive(false);
+        print("To BE DESTROYED" + toBeDestoried);
+        try
+        {
+            GameObject.Find(toBeDestoried).SetActive(false);
+        }
+        catch {  }
     }
 
     public void DeactivateGameUI()

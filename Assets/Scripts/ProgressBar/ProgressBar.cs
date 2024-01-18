@@ -69,7 +69,7 @@ public class ProgressBar : MonoBehaviour
         // Set target progress based on the calculated progress
         targetProgress = minProgress + progress * (maxProgress - minProgress);
 
-        print("Progress : " + targetProgress);
+        //print("Progress : " + targetProgress);
         // Update the image based on progress level
         UpdateProgressImage(targetProgress);
     }
