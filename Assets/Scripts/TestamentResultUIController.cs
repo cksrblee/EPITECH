@@ -30,7 +30,7 @@ public class TestamentResultUIController : MonoBehaviour
         yield return new WaitForSeconds(GameManager.waitSecondsOfTestamentResultPanel);
         //GameObject.Find("GameManager").GetComponent<UIController>().FinishKingDeadUI();
         //ThisWorldEventController.
-        ThisWorldEventController.OnRestartGame?.Invoke();
+        //ThisWorldEventController.OnRestartGame?.Invoke();
 
         Destroy(gameObject);
     }

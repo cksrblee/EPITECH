@@ -20,6 +20,10 @@ public class ReadingBookMngr : MonoBehaviour
 
     public GameObject storyUI;
 
+    // For Background Music
+    public AudioSource ButtonSource; // Reference to the AudioSource component
+    public AudioSource bgmAudioSource; // Reference to the AudioSource component
+
     bool isZoomFinished = false;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,8 @@ public class ReadingBookMngr : MonoBehaviour
 
         StartCoroutine(CameraMoving(2.1f));
 
+        // Start playing BGM
+        bgmAudioSource.Play();
     }
 
     // Update is called once per frame
@@ -42,6 +48,10 @@ public class ReadingBookMngr : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && isZoomFinished)
         {
+            // BOOK BGM STOP HERE
+            bgmAudioSource.Stop();
+            ButtonSource.Play();
+            StartCoroutine(WaitForSeconds(1.0f));
             storyUI.SetActive(true);
         }
 
@@ -75,7 +85,13 @@ public class ReadingBookMngr : MonoBehaviour
 
     public void LoadMainScene()
     {
+
         SceneManager.LoadScene("Main");
+    }
+
+    IEnumerator WaitForSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 
     public void loadnextscene()

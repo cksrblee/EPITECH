@@ -54,7 +54,7 @@ public class ProgressBar : MonoBehaviour
         {
             progress = (float)currentScenarioIndex / (maxScenarios - 1);
         }
-        else if(currentScenarioIndex == 15)
+        else if(currentScenarioIndex == 14)
         {
             progress = minProgress;
             fullProgressBar.fillAmount = minProgress;
