@@ -8,6 +8,7 @@ public class TimerUI : MonoBehaviour
     public Transform hand;
     private float timerDuration = GameManager.timerDuration;
     private float timer; // Current Timer
+    private float startpoint = 5.0f; // Current Timer
 
     // For Sound Effect
     public AudioSource tickSource; // Reference to the AudioSource component
@@ -16,35 +17,48 @@ public class TimerUI : MonoBehaviour
 
     private float timeScale = 1f;
 
+    private bool isPlaying = false;
+
     void Start()
     {
         timer = timerDuration; // Set the timer time
         tickInterval = 1f; // Set the interval between ticks, adjust as needed
         nextTickTime = Time.time + tickInterval;
+        StartCoroutine(StartTimerDelay(startpoint));
+    }
+
+    IEnumerator StartTimerDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isPlaying = true;
     }
 
     void Update()
     {
-        //timeScale = GameManager.timerDuration;
-        if (timer > 0)
+        if(isPlaying) 
         {
-            timer -= Time.deltaTime; // timer goes down
-            float angle = (360 / timerDuration) * Time.deltaTime; // Calculate rotating angle
-            hand.Rotate(0, 0, -angle); // turn by second
-        }
+            //timeScale = GameManager.timerDuration;
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime; // timer goes down
+                float anglePerSecond = 360f / 10f; // 36 degrees per second
+                float angle = anglePerSecond * Time.deltaTime; // Calculate rotating angle for the current frame
+                hand.Rotate(0, 0, -angle); // Rotate the hand
+            }
 
-        // Increase ticking speed when there are 5 seconds or less remaining timer
-        if (timer <= 5f && tickInterval != 0.5f) // Adjust this value to change the faster ticking rate
-        {
-            tickInterval = 0.5f; // Faster ticking interval
-            nextTickTime = Time.time; // Reset next tick time for immediate effect
-        }
+            // Increase ticking speed when there are 5 seconds or less remaining timer
+            if (timer <= 5f && tickInterval != 0.5f) // Adjust this value to change the faster ticking rate
+            {
+                tickInterval = 0.5f; // Faster ticking interval
+                nextTickTime = Time.time; // Reset next tick time for immediate effect
+            }
 
-        // Check if it's time to play the next tick
-        if (Time.time >= nextTickTime)
-        {
-            tickSource.Play(); // Play the ticking sound
-            nextTickTime += tickInterval; // Set the time for the next tick
+            // Check if it's time to play the next tick
+            if (Time.time >= nextTickTime)
+            {
+                tickSource.Play(); // Play the ticking sound
+                nextTickTime += tickInterval; // Set the time for the next tick
+            }
         }
     }
 }
