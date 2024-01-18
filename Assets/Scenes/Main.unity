@@ -8019,10 +8019,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1745150939}
-  TESTKingDeadTest: 1
+  TESTKingDeadTest: 0
   TESTEnding: 0
   TESTProgress: 0
-  TESTStage: 14
+  TESTStage: 10
 --- !u!4 &1745150938
 Transform:
   m_ObjectHideFlags: 0
