@@ -29,7 +29,6 @@ public class CardController : MonoBehaviour
     public AudioClip quizSound;
     private AudioSource audio_source;
 
-
     public Scenarios scenarios;
 
     public int curScenarioIndex = 1;
@@ -53,7 +52,12 @@ public class CardController : MonoBehaviour
         // Start with the quiz panel active for 5 seconds
         //StartCoroutine(ActivatePanelWithAnimation());
         quizPanel.SetActive(true);
-        StartCoroutine(DeactivatePanelAfterTime(4.0f));
+        StartCoroutine(DeactivatePanelAfterTime(7.0f));
+
+        // Opens the button after 7 seconds
+        StartCoroutine(OpenButtonDelay(7.0f));
+
+        toggleButton.enabled = false;
 
         // Add a listener to the button to call TogglePanel method when clicked
         toggleButton.onClick.AddListener(TogglePanel);
@@ -64,8 +68,8 @@ public class CardController : MonoBehaviour
 
     IEnumerator DelayedMakeCards()
     {
-        // Wait for 5 seconds
-        yield return new WaitForSeconds(5f);
+        // Wait for 7.5 seconds
+        yield return new WaitForSeconds(7.5f);
 
         // Play the sound effect
         audio_source.PlayOneShot(card_sound);
@@ -82,9 +86,15 @@ public class CardController : MonoBehaviour
         // Wait for the specified time
         QuestionText.text = scenarios.scenarios[curScenarioIndex].advise;
         yield return new WaitForSeconds(time);
-        
+
         // Deactivate the panel
         ClosePanelAnimation();
+    }
+
+    IEnumerator OpenButtonDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        toggleButton.enabled = true;
     }
 
     void TogglePanel()

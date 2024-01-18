@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public static bool isGaugeValueChanged = false;
     public static int kingIndex = 1;
 
-    public static float timerDuration = 15f;
+    public static float timerDuration = 20f;
 
     public bool TESTKingDeadTest = false;
     public bool TESTEnding = false;
@@ -79,8 +79,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         scenarioIndex = 0;
-        if (timerDuration>15)
-            timerDuration = 15;
+        if (timerDuration>20)
+            timerDuration = 20;
 
         Royal = 50;
         Popularity = 50;

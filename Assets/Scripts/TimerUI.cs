@@ -8,7 +8,7 @@ public class TimerUI : MonoBehaviour
     public Transform hand;
     private float timerDuration = GameManager.timerDuration;
     private float timer; // Current Timer
-    private float startpoint = 5.0f; // Current Timer
+    private float startpoint = 7.0f; // Current Timer
 
     // For Sound Effect
     public AudioSource tickSource; // Reference to the AudioSource component
@@ -41,7 +41,7 @@ public class TimerUI : MonoBehaviour
             if (timer > 0)
             {
                 timer -= Time.deltaTime; // timer goes down
-                float anglePerSecond = 360f / 10f; // 36 degrees per second
+                float anglePerSecond = 360f / 13f; // 36 degrees per second
                 float angle = anglePerSecond * Time.deltaTime; // Calculate rotating angle for the current frame
                 hand.Rotate(0, 0, -angle); // Rotate the hand
             }
