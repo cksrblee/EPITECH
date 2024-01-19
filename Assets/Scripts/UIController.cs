@@ -190,6 +190,10 @@ public class UIController : MonoBehaviour
         print("KING DEAD!!!");
         audioSource.loop = false;
         audioSource.Stop();
+        // Set Volume to 0.4f
+        kingDeadSource.volume = 0.2f;
+
+        print(kingDeadSource.volume);
         kingDeadSource.Play();
         isKingDead = true;
         //open kingDead UI
@@ -203,6 +207,7 @@ public class UIController : MonoBehaviour
         KingDeadUI.SetActive(false);
         // Here ZUKWE BGM
         kingDeadSource.clip = UwonMusic;
+        kingDeadSource.volume = 0.2f;
         kingDeadSource.Play();
     }
 
@@ -222,6 +227,8 @@ public class UIController : MonoBehaviour
         TestamentResultUI.SetActive(true);
         isTestamentSelected = true;
         kingDeadSource.Stop();
+        // Back to 1.0f
+        kingDeadSource.volume = 1.0f;
         FinishKingDeadUI();
         ThisWorldEventController.OnTestament1Selected.Invoke();
     }
@@ -231,6 +238,7 @@ public class UIController : MonoBehaviour
         TestamentResultUI.SetActive(true);
         isTestamentSelected = true;
         kingDeadSource.Stop();
+        kingDeadSource.volume = 1.0f;
         FinishKingDeadUI();
         ThisWorldEventController.OnTestament2Selected.Invoke();
     }
@@ -269,6 +277,7 @@ public class UIController : MonoBehaviour
         leftUpperUI.GetComponent<BaseGaugeController>().MakeAllImageVisible();
         progressBar.SetActive(true);
         kingDeadSource.Stop();
+        kingDeadSource.volume = 1.0f;
         PlayBackgroundMusic(); // Update BGM when UI is activated
     }
 }
