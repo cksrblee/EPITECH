@@ -53,7 +53,7 @@ public class tutorialuScene1 : MonoBehaviour
         finished_dialog = false;
 
         // Third Dialogue
-        ShowDialogue("When the situation arises, you must choose one of the two options within 10 seconds, from the perspective of the king."); // Show third dialogue
+        ShowDialogue("When the situation arises, you must choose one of the two options within 13 seconds, from the perspective of the king."); // Show third dialogue
         yield return new WaitUntil(() => finished_dialog);
         finished_dialog = false;
 

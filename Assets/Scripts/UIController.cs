@@ -117,11 +117,13 @@ public class UIController : MonoBehaviour
         {
             audioSource.clip = BGM1;
             audioSource.Play();
+            audioSource.loop = true;
         }
         else
         {
             audioSource.clip = BGM2;
             audioSource.Play();
+            audioSource.loop = true;
         }
 
         //print("Is King Dead? : " + isKingDead);
@@ -186,6 +188,7 @@ public class UIController : MonoBehaviour
     public void OnKingDead()
     {
         print("KING DEAD!!!");
+        audioSource.loop = false;
         audioSource.Stop();
         kingDeadSource.Play();
         isKingDead = true;

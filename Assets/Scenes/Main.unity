@@ -3474,7 +3474,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8021,7 +8021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1745150939}
-  TESTKingDeadTest: 1
+  TESTKingDeadTest: 0
   TESTEnding: 0
   TESTProgress: 0
   TESTStage: 10

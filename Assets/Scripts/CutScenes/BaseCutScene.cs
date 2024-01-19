@@ -93,7 +93,7 @@ public class BaseCutScene : MonoBehaviour, IPointerClickHandler
 
 
         // Deactivate after the effect
-        DOVirtual.DelayedCall(text.Length * 0.05f + 0.8f, () => {
+        DOVirtual.DelayedCall(text.Length * 0.05f + 1.5f, () => {
             dialogueText.DOFade(0, 0.5f).OnComplete(() => {
                 //typingSoundEffect.Stop(); // Stop the typing sound effect if we're finishing
                 dialogueBackground.SetActive(false);

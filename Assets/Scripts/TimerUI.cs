@@ -41,7 +41,8 @@ public class TimerUI : MonoBehaviour
             if (timer > 0)
             {
                 timer -= Time.deltaTime; // timer goes down
-                float anglePerSecond = 360f / 13f; // 36 degrees per second
+                float anglePerSecond = 360f / (GameManager.timerDuration - startpoint);
+                print(GameManager.timerDuration - startpoint); 
                 float angle = anglePerSecond * Time.deltaTime; // Calculate rotating angle for the current frame
                 hand.Rotate(0, 0, -angle); // Rotate the hand
             }
